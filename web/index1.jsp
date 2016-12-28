@@ -912,11 +912,13 @@ $('.m2id').val("");
 										<thead>
 										  <tr>
 											
-					<!--<th>Id</th>-->				
+					<!--<th>Id</th>-->	
+                                        
+                                        <th style="width:14%">Application Name</th>
                                         <th style="width:7%">Rel.Month</th>
                                         <th style="width:12%">Test Date</th>
-					<th style="width:14%">Transaction Name</th>
-                                        <th style="width:10%">Action</th>
+<!--					
+                                        <th style="width:10%">Action</th>-->
 										  </tr>
 										</thead>
 										<tbody> 
@@ -973,12 +975,13 @@ $('.m2id').val("");
                                    %>
             <tr>
 <!--            <td><%=id%></td>-->
+                   <td><%=name%></td>   
                 <td><%=month%></td>  
                 <td><%=date%></td>                  
-                <td><%=name%></td>   
+             
                
-                <td><a href="BgwController?id=<%=id%>&action=edit#3thPage">Edit</a>|<a href="BgwController?id=<%=id%>&action=delete">Delete</a></td> 
-                
+              <!--  <td><a href="BgwController?id=<%=id%>&action=edit#3thPage">Edit</a>|<a href="BgwController?id=<%=id%>&action=delete">Delete</a></td> 
+                -->
             </tr>
             <%
                 }
@@ -1011,11 +1014,11 @@ $('.m2id').val("");
 										<thead>
 										  <tr>
 											
-					<!--<th>Id</th>-->				
+					<!--<th>Id</th>-->		
+                                        <th style="width:14%">Application Name</th>
                                         <th style="width:7%">Rel.Month</th>
-                                        <th style="width:12%">Test Date</th>
-					<th style="width:14%">Transaction Name</th>
-                                        <th style="width:10%">Action</th>
+                                        <th style="width:12%">Test Date</th>					
+                                        <!--<th style="width:10%">Action</th>-->
 										  </tr>
 										</thead>
 										<tbody> 
@@ -1040,11 +1043,12 @@ $('.m2id').val("");
                                    %>
             <tr>
 <!--            <td><%=id2%></td>-->
+                   <td><%=name2%></td>   
                 <td><%=month2%></td>  
                 <td><%=date2%></td>                  
-                <td><%=name2%></td>   
+             
                
-                <td><a href="#">Edit</a>|<a href="#">Delete</a></td> 
+                <!--<td><a href="#">Edit</a>|<a href="#">Delete</a></td>--> 
                 
             </tr>
             <%
@@ -1078,11 +1082,12 @@ $('.m2id').val("");
 										<thead>
 										  <tr>
 											
-					<!--<th>Id</th>-->				
+					<!--<th>Id</th>-->	
+                                        
+                                        <th style="width:14%">Application Name</th>
                                         <th style="width:7%">Rel.Month</th>
                                         <th style="width:12%">Test Date</th>
-					<th style="width:14%">Transaction Name</th>
-                                        <th style="width:10%">Action</th>
+                                        <!--<th style="width:10%">Action</th>-->
 										  </tr>
 										</thead>
 										<tbody> 
@@ -1107,11 +1112,12 @@ $('.m2id').val("");
                                    %>
             <tr>
 <!--            <td><%=id3%></td>-->
+                   <td><%=name3%></td>   
                 <td><%=month3%></td>  
                 <td><%=date3%></td>                  
-                <td><%=name3%></td>   
+             
                
-                <td><a href="#">Edit</a>|<a href="#">Delete</a></td> 
+                <!--<td><a href="#">Edit</a>|<a href="#">Delete</a></td>--> 
                 
             </tr>
             <%
@@ -1145,11 +1151,12 @@ $('.m2id').val("");
 										<thead>
 										  <tr>
 											
-					<!--<th>Id</th>-->				
+					<!--<th>Id</th>-->	
+                                        
+					<th style="width:14%">Application Name</th>
                                         <th style="width:7%">Rel.Month</th>
                                         <th style="width:12%">Test Date</th>
-					<th style="width:14%">Transaction Name</th>
-                                        <th style="width:10%">Action</th>
+                                        <!--<th style="width:10%">Action</th>-->
 										  </tr>
 										</thead>
 										<tbody> 
@@ -1174,11 +1181,12 @@ $('.m2id').val("");
                                    %>
             <tr>
 <!--            <td><%=id4%></td>-->
+                <td><%=name4%></td>   
                 <td><%=month4%></td>  
                 <td><%=date4%></td>                  
-                <td><%=name4%></td>   
+                
                
-                <td><a href="#">Edit</a>|<a href="#">Delete</a></td> 
+                <!--<td><a href="#">Edit</a>|<a href="#">Delete</a></td>--> 
                 
             </tr>
             <%
