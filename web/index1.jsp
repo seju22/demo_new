@@ -444,21 +444,21 @@ $('.m2id').val("");
                                          <div class="form-group has-success col-xs-4">
                                              <label class="col-xs-6 control-label" for="inputSuccess">Open Equipment Page</label>
                                          <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m1col1" name="bGWOpenEquipmentPage" min="0" max="100" step="0.1" value="${edit1.col1}" required />
+                                            <input type="text" class="form-control m1col1" name="bGWOpenEquipmentPage" min="0" max="100" step="0.1" value="${edit1.col1}" required />
                                          </div>
                                     </div>
                                         <div class="form-group has-success col-xs-4">
                                           <label class="col-xs-6 control-label" for="inputSuccess">Open Add Aisle Page</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
                                             
-                                            <input type="number" class="form-control m1col2" name="bGWOpenAddAislePage" min="0" max="100" step="0.1" value="${edit1.col2}" required/>
+                                            <input type="text" class="form-control m1col2" name="bGWOpenAddAislePage" min="0" max="100" step="0.1" value="${edit1.col2}" required/>
                                         </div>
                                     </div>
                                          <div class="form-group has-success col-xs-4">
                                          <label class="col-xs-6 control-label" for="inputSuccess">Load Rack Details</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
                                             
-                                            <input type="number" class="form-control m1col3" name="bGWLoadRackDetails" min="0" max="100" step="0.1" value="${edit1.col3}" required />
+                                            <input type="text" class="form-control m1col3" name="bGWLoadRackDetails" min="0" max="100" step="0.1" value="${edit1.col3}" required />
                                         </div>
                                     </div>
                                      </div>
@@ -467,19 +467,19 @@ $('.m2id').val("");
                                         <div class="form-group has-success col-xs-4">
                                           <label class="col-xs-6 control-label" for="inputSuccess">Path Select Path</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m1col4" name="bGWPathSelectPath" min="0" max="100" step="0.1" value="${edit1.col4}"required/>
+                                            <input type="text" class="form-control m1col4" name="bGWPathSelectPath" min="0" max="100" step="0.1" value="${edit1.col4}"required/>
                                         </div>
                                     </div>
                                         <div class="form-group has-success col-xs-4">
                                          <label class="col-xs-6 control-label" for="inputSuccess">Path Open CircuitId Details</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m1col5" name="bGWPathOpenCircuitIdDetails" min="0" max="100" step="0.1" value="${edit1.col5}" required />
+                                            <input type="text" class="form-control m1col5" name="bGWPathOpenCircuitIdDetails" min="0" max="100" step="0.1" value="${edit1.col5}" required />
                                         </div>
                                     </div>
                                          <div class="form-group has-success col-xs-4">
                                           <label class="col-xs-6 control-label" for="inputSuccess">Path Open Circuit View Page</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m1col6" name="bGWPathOpenCircuitViewPage" min="0" max="100" step="0.1" value="${edit1.col6}" required/>
+                                            <input type="text" class="form-control m1col6" name="bGWPathOpenCircuitViewPage" min="0" max="100" step="0.1" value="${edit1.col6}" required/>
                                         </div>
                                     </div>
                                      </div>
@@ -488,19 +488,19 @@ $('.m2id').val("");
                                          <div class="form-group has-success col-xs-4">
                                          <label class="col-xs-6 control-label" for="inputSuccess">Path Open Print View Page</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m1col7" name="bGWPathOpenPrintViewPage" min="0" max="100" step="0.1" value="${edit1.col7}" required />
+                                            <input type="text" class="form-control m1col7" name="bGWPathOpenPrintViewPage" min="0" max="100" step="0.1" value="${edit1.col7}" required />
                                         </div>
                                     </div>
                                         <div class="form-group has-success col-xs-4">
                                           <label class="col-xs-6 control-label" for="inputSuccess">Path Open Circuit Premises Page</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m1col8" name="bGWPathOpenCircuitPremisesPage" min="0" max="100" step="0.1" value="${edit1.col8}" required/>
+                                            <input type="text" class="form-control m1col8" name="bGWPathOpenCircuitPremisesPage" min="0" max="100" step="0.1" value="${edit1.col8}" required/>
                                         </div>
                                     </div>
                                          <div class="form-group has-success col-xs-4">
                                          <label class="col-xs-6 control-label" for="inputSuccess">Path Open Circuit View Page</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m1col9" name="bGWPathClickModify" min="0" max="100" step="0.1" value="${edit1.col9}"  required />
+                                            <input type="text" class="form-control m1col9" name="bGWPathClickModify" min="0" max="100" step="0.1" value="${edit1.col9}"  required />
                                         </div>
                                     </div>
                                      </div>
@@ -509,19 +509,19 @@ $('.m2id').val("");
                                         <div class="form-group has-success col-xs-4">
                                           <label class="col-xs-6 control-label" for="inputSuccess">Path Click Modify</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m1col10" name="bGWSiteOpenAddNewSitePage" min="0" max="100" step="0.1" value="${edit1.col10}" required/>
+                                            <input type="text" class="form-control m1col10" name="bGWSiteOpenAddNewSitePage" min="0" max="100" step="0.1" value="${edit1.col10}" required/>
                                         </div>
                                     </div>
                                         <div class="form-group has-success col-xs-4">
                                          <label class="col-xs-6 control-label" for="inputSuccess">Site Open Add New Site Page</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m1col11" name="bGWViewOrderOpenViewOrderPage" min="0" max="100" step="0.1" value="${edit1.col11}" required />
+                                            <input type="text" class="form-control m1col11" name="bGWViewOrderOpenViewOrderPage" min="0" max="100" step="0.1" value="${edit1.col11}" required />
                                         </div>
                                     </div>
                                         <div class="form-group has-success col-xs-4">
                                           <label class="col-xs-6 control-label" for="inputSuccess">View Order OpenView Order Page</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m1col12" name="bGWViewOrderOpenDetailsPage" min="0" max="100" step="0.1" value="${edit1.col12}"  required/>
+                                            <input type="text" class="form-control m1col12" name="bGWViewOrderOpenDetailsPage" min="0" max="100" step="0.1" value="${edit1.col12}"  required/>
                                         </div>
                                     </div>
                                      </div>
@@ -530,19 +530,19 @@ $('.m2id').val("");
                                          <div class="form-group has-success col-xs-4">
                                          <label class="col-xs-6 control-label" for="inputSuccess">View Order Open Audits Tab</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m1col13" name="bGWViewOrderOpenAuditsTab" min="0" max="100" step="0.1" value="${edit1.col13}" required />
+                                            <input type="text" class="form-control m1col13" name="bGWViewOrderOpenAuditsTab" min="0" max="100" step="0.1" value="${edit1.col13}" required />
                                         </div>
                                     </div>
                                         <div class="form-group has-success col-xs-4">
                                           <label class="col-xs-6 control-label" for="inputSuccess">View Order Open Interface Activity</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m1col14" name="bGWViewOrderOpenInterfaceActivityTab" min="0" max="100" step="0.1" value="${edit1.col14}"  required/>
+                                            <input type="text" class="form-control m1col14" name="bGWViewOrderOpenInterfaceActivityTab" min="0" max="100" step="0.1" value="${edit1.col14}"  required/>
                                         </div>
                                     </div>
                                         <div class="form-group has-success col-xs-4">
                                          <label class="col-xs-6 control-label" for="inputSuccess">Search Task Record</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m1col15" name="bGWSearchTaskRecord" min="0" max="100" step="0.1" value="${edit1.col15}" required />
+                                            <input type="text" class="form-control m1col15" name="bGWSearchTaskRecord" min="0" max="100" step="0.1" value="${edit1.col15}" required />
                                         </div>
                                     </div>
                                      </div>
@@ -551,7 +551,7 @@ $('.m2id').val("");
                                         <div class="form-group has-success col-xs-4">
                                           <label class="col-xs-6 control-label" for="inputSuccess">Search Task Open Task Detail</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m1col16" name="bGWSearchTaskOpenTaskDetailPage" min="0" max="100" step="0.1" value="${edit1.col16}"  required/>
+                                            <input type="text" class="form-control m1col16" name="bGWSearchTaskOpenTaskDetailPage" min="0" max="100" step="0.1" value="${edit1.col16}"  required/>
                                         </div>
                                     </div>
                                      </div>
@@ -613,13 +613,13 @@ $('.m2id').val("");
                                          <div class="form-group has-success col-xs-6">
                                          <label class="col-xs-6 control-label" for="inputSuccess">Circuit-Search Circuit</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m2col1" name="vDDSCircuitSearchCircuit" min="0" max="100" step="0.1" value="${edit2.col1}" required />
+                                            <input type="text" class="form-control m2col1" name="vDDSCircuitSearchCircuit" min="0" max="100" step="0.1" value="${edit2.col1}" required />
                                         </div>
                                     </div>
                                         <div class="form-group has-success col-xs-6">
                                           <label class="col-xs-6 control-label" for="inputSuccess">Work Order-Search Work Order</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number"  class="form-control m2col2"  name="vDDSWorkOrderSearchWorkOrder"  min="0" max="100" step="0.1" value="${edit2.col2}" required/>
+                                            <input type="text"  class="form-control m2col2"  name="vDDSWorkOrderSearchWorkOrder"  min="0" max="100" step="0.1" value="${edit2.col2}" required/>
                                         </div>
                                     </div>
                                      </div>
@@ -627,13 +627,13 @@ $('.m2id').val("");
                                          <div class="form-group has-success col-xs-6">
                                          <label class="col-xs-6 control-label" for="inputSuccess">WS Get PVC Changeinfo </label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m2col3"  name="vDDSWSGetPVCChangeinfo" min="0" max="100" step="0.1" value="${edit2.col3}" required />
+                                            <input type="text" class="form-control m2col3"  name="vDDSWSGetPVCChangeinfo" min="0" max="100" step="0.1" value="${edit2.col3}" required />
                                         </div>
                                     </div>
                                         <div class="form-group has-success col-xs-6">
                                           <label class="col-xs-6 control-label" for="inputSuccess">WS Get Circuit & Pvcs IPSM</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m2col4"   name="vDDSWSGetCircuitAndPvcsIPSM" min="0" max="100" step="0.1" value="${edit2.col4}"required/>
+                                            <input type="text" class="form-control m2col4"   name="vDDSWSGetCircuitAndPvcsIPSM" min="0" max="100" step="0.1" value="${edit2.col4}"required/>
                                         </div>
                                     </div>
                                      </div>
@@ -641,13 +641,13 @@ $('.m2id').val("");
                                          <div class="form-group has-success col-xs-6">
                                          <label class="col-xs-6 control-label" for="inputSuccess">TDM Order Approve</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m2col5"  name="vDDSTDMOrderApprove" min="0" max="100" step="0.1" value="${edit2.col5}" required />
+                                            <input type="text" class="form-control m2col5"  name="vDDSTDMOrderApprove" min="0" max="100" step="0.1" value="${edit2.col5}" required />
                                         </div>
                                     </div>
                                         <div class="form-group has-success col-xs-6">
                                           <label class="col-xs-6 control-label" for="inputSuccess">TDM Order Provisioning-Search WorkOrder</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m2col6"  name="vDDSTDMOrderProvisioningSearchWorkOrder" min="0" max="100" step="0.1" value="${edit2.col6}" required/>
+                                            <input type="text" class="form-control m2col6"  name="vDDSTDMOrderProvisioningSearchWorkOrder" min="0" max="100" step="0.1" value="${edit2.col6}" required/>
                                         </div>
                                     </div>
                                      </div>
@@ -655,7 +655,7 @@ $('.m2id').val("");
                                          <div class="form-group has-success col-xs-6">
                                          <label class="col-xs-6 control-label" for="inputSuccess">TDM Order Provisioning-Click Submit Provision Button</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m2col7"  name="vDDSTDMOrderProvisioningClickSubmitProvisionButton" min="0" max="100" step="0.1" value="${edit2.col7}" required />
+                                            <input type="text" class="form-control m2col7"  name="vDDSTDMOrderProvisioningClickSubmitProvisionButton" min="0" max="100" step="0.1" value="${edit2.col7}" required />
                                         </div>
                                     </div>
                                        
@@ -720,13 +720,13 @@ $('.m2id').val("");
                                          <div class="form-group has-success col-xs-6">
                                          <label class="col-xs-6 control-label" for="inputSuccess">Advanced Trunk Search-Search Trunks</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m3col1"  name="sNMAdvancedTrunkSearchSearchTrunks"  min="0" max="100" step="0.1" value="${edit3.col1}" required />
+                                            <input type="text" class="form-control m3col1"  name="sNMAdvancedTrunkSearchSearchTrunks"  min="0" max="100" step="0.1" value="${edit3.col1}" required />
                                         </div>
                                     </div>
                                         <div class="form-group has-success col-xs-6">
                                           <label class="col-xs-6 control-label" for="inputSuccess">Circuit Assign/Search Site Partname</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m3col2"  name="provisionFindPortsField" min="0" max="100" step="0.1" value="${edit3.col2}" required/>
+                                            <input type="text" class="form-control m3col2"  name="provisionFindPortsField" min="0" max="100" step="0.1" value="${edit3.col2}" required/>
                                         </div>
                                     </div>
                                      </div>
@@ -734,13 +734,13 @@ $('.m2id').val("");
                                          <div class="form-group has-success col-xs-6">
                                          <label class="col-xs-6 control-label" for="inputSuccess">Circuit Assign/Provisio-Find Ports Field </label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m3col3"  name="provisionAssignprovisionAssign" min="0" max="100" step="0.1" value="${edit3.col3}" required />
+                                            <input type="text" class="form-control m3col3"  name="provisionAssignprovisionAssign" min="0" max="100" step="0.1" value="${edit3.col3}" required />
                                         </div>
                                     </div>
                                         <div class="form-group has-success col-xs-6">
                                           <label class="col-xs-6 control-label" for="inputSuccess">Circuit View Modify-Query</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m3col4"  name="sNMCircuitViewModifyQuery" min="0" max="100" step="0.1" value="${edit3.col4}"required/>
+                                            <input type="text" class="form-control m3col4"  name="sNMCircuitViewModifyQuery" min="0" max="100" step="0.1" value="${edit3.col4}"required/>
                                         </div>
                                     </div>
                                      </div>
@@ -748,13 +748,13 @@ $('.m2id').val("");
                                          <div class="form-group has-success col-xs-6">
                                          <label class="col-xs-6 control-label" for="inputSuccess">NNIConnection New-SEarch NNI</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m3col5"  name="sNMNNIConnectionNewSearchNNI" min="0" max="100" step="0.1" value="${edit3.col5}" required />
+                                            <input type="text" class="form-control m3col5"  name="sNMNNIConnectionNewSearchNNI" min="0" max="100" step="0.1" value="${edit3.col5}" required />
                                         </div>
                                     </div>
                                         <div class="form-group has-success col-xs-6">
                                           <label class="col-xs-6 control-label" for="inputSuccess">WS find Access Cicuit Capacity At Multiple Sites</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m3col6"   name="sNMWSfindAccessCicuitCapacityAtMultipleSites" min="0" max="100" step="0.1" value="${edit3.col6}" required/>
+                                            <input type="text" class="form-control m3col6"   name="sNMWSfindAccessCicuitCapacityAtMultipleSites" min="0" max="100" step="0.1" value="${edit3.col6}" required/>
                                         </div>
                                     </div>
                                      </div>
@@ -762,13 +762,13 @@ $('.m2id').val("");
                                          <div class="form-group has-success col-xs-6">
                                          <label class="col-xs-6 control-label" for="inputSuccess">WS find Path Capacity</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m3col7"  name="sNMWSfindPathCapacity" min="0" max="100" step="0.1" value="${edit3.col7}" required />
+                                            <input type="text" class="form-control m3col7"  name="sNMWSfindPathCapacity" min="0" max="100" step="0.1" value="${edit3.col7}" required />
                                         </div>
                                     </div>
 									<div class="form-group has-success col-xs-6">
                                          <label class="col-xs-6 control-label" for="inputSuccess">WS get NNICapacity From SNM</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m3col8"  name="sNMWSgetNNICapacityFromSNM" min="0" max="100" step="0.1" value="${edit3.col8}" required />
+                                            <input type="text" class="form-control m3col8"  name="sNMWSgetNNICapacityFromSNM" min="0" max="100" step="0.1" value="${edit3.col8}" required />
                                         </div>
                                     </div>
                                        
@@ -832,13 +832,13 @@ $('.m2id').val("");
                                          <div class="form-group has-success col-xs-6">
                                          <label class="col-xs-6 control-label" for="inputSuccess">SITE Level Search-Select Cloudservices Click Search</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m4col1"  name="iPSMSITESelectCloudservicesClickSearch" min="0" max="100" step="0.1" value="${edit4.col1}" required />
+                                            <input type="text" class="form-control m4col1"  name="iPSMSITESelectCloudservicesClickSearch" min="0" max="100" step="0.1" value="${edit4.col1}" required />
                                         </div>
                                     </div>
                                         <div class="form-group has-success col-xs-6">
                                           <label class="col-xs-6 control-label" for="inputSuccess">SITE Level Search-Search Site Partname</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m4col2"   name="iPSMSITESearchSitePartname"  min="0" max="100" step="0.1" value="${edit4.col2}" required/>
+                                            <input type="text" class="form-control m4col2"   name="iPSMSITESearchSitePartname"  min="0" max="100" step="0.1" value="${edit4.col2}" required/>
                                         </div>
                                     </div>
                                      </div>
@@ -846,13 +846,13 @@ $('.m2id').val("");
                                          <div class="form-group has-success col-xs-6">
                                          <label class="col-xs-6 control-label" for="inputSuccess">SITE Level Search-Search Circuit Id </label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m4col3"  name="iPSMSITESearchCircuitid" min="0" max="100" step="0.1" value="${edit4.col3}" required />
+                                            <input type="text" class="form-control m4col3"  name="iPSMSITESearchCircuitid" min="0" max="100" step="0.1" value="${edit4.col3}" required />
                                         </div>
                                     </div>
                                         <div class="form-group has-success col-xs-6">
                                           <label class="col-xs-6 control-label" for="inputSuccess">VPN Level Search-Select Cloudservices Click Search</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m4col4"  name="iPSMVPNSelectCloudservicesClickSearch" min="0" max="100" step="0.1" value="${edit4.col4}"required/>
+                                            <input type="text" class="form-control m4col4"  name="iPSMVPNSelectCloudservicesClickSearch" min="0" max="100" step="0.1" value="${edit4.col4}"required/>
                                         </div>
                                     </div>
                                      </div>
@@ -860,7 +860,7 @@ $('.m2id').val("");
                                          <div class="form-group has-success col-xs-6">
                                          <label class="col-xs-6 control-label" for="inputSuccess">WS UpdateSiteinfo Invoke</label>
                                         <div class="col-xs-6" style="padding-top: 24px;">
-                                            <input type="number" class="form-control m4col5"   name="iPSMWSUpdateSiteInfoInvoke" min="0" max="100" step="0.1" value="${edit4.col5}" required />
+                                            <input type="text" class="form-control m4col5"   name="iPSMWSUpdateSiteInfoInvoke" min="0" max="100" step="0.1" value="${edit4.col5}" required />
                                         </div>
                                     </div>
                                         

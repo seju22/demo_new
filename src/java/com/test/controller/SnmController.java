@@ -93,6 +93,7 @@ public class SnmController extends HttpServlet {
             
             SnmDao sd=new SnmDao();
             sd.insert(s);
+             response.sendRedirect("index1.jsp#4thPage");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(SnmController.class.getName()).log(Level.SEVERE, null, ex);
         }

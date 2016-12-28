@@ -90,6 +90,7 @@ public class IpsmController extends HttpServlet {
             IpsmDao i=new IpsmDao();
         try {
             i.insert(ipsm);
+             response.sendRedirect("index1.jsp#4thPage");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(IpsmController.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -93,6 +93,7 @@ public class VddsController extends HttpServlet {
             VddsDao d=new VddsDao();
         try {
             d.insert(i);
+             response.sendRedirect("index1.jsp#4thPage");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(VddsController.class.getName()).log(Level.SEVERE, null, ex);
         }
