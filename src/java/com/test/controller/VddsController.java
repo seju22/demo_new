@@ -12,6 +12,8 @@ import com.test.dao.VddsDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -78,17 +80,24 @@ public class VddsController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        // processRequest(request, response);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+        java.util.Date date = null;
+        try {
+            date = sdf.parse(request.getParameter("date"));
+        } catch (ParseException ex) {
+            Logger.getLogger(BgwController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Vdds i=new Vdds();
-            i.setDate(request.getParameter("date"));
-            i.setMonth(request.getParameter("month"));
-            i.setName(request.getParameter("name"));  
+            i.setReldate(date);
+            i.setRelmonth(request.getParameter("month"));
+            i.setRelname(request.getParameter("name"));  
             i.setVDDSCircuitSearchCircuit(request.getParameter("vDDSCircuitSearchCircuit"));
             i.setVDDSWorkOrderSearchWorkOrder(request.getParameter("vDDSWorkOrderSearchWorkOrder"));
             i.setVDDSWSGetPVCChangeinfo(request.getParameter("vDDSWSGetPVCChangeinfo"));
             i.setVDDSWSGetCircuitAndPvcsIPSM(request.getParameter("vDDSWSGetCircuitAndPvcsIPSM"));
             i.setVDDSTDMOrderApprove(request.getParameter("vDDSTDMOrderApprove"));
             i.setVDDSTDMOrderProvisioningSearchWorkOrder(request.getParameter("vDDSTDMOrderProvisioningSearchWorkOrder"));
-            i.setVDDSTDMOrderProvisioningClickSubmitProvisionButton(request.getParameter("vDDSTDMOrderProvisioningClickSubmitProvisionButton"));
+//            i.setVDDSTDMOrderProvisioningClickSubmitProvisionButton(request.getParameter("vDDSTDMOrderProvisioningClickSubmitProvisionButton"));
             
             VddsDao d=new VddsDao();
         try {

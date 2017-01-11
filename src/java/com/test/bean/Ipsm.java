@@ -7,6 +7,7 @@
 package com.test.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +17,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -29,9 +32,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Ipsm.findAll", query = "SELECT i FROM Ipsm i"),
     @NamedQuery(name = "Ipsm.findById", query = "SELECT i FROM Ipsm i WHERE i.id = :id"),
-    @NamedQuery(name = "Ipsm.findByDate", query = "SELECT i FROM Ipsm i WHERE i.date = :date"),
-    @NamedQuery(name = "Ipsm.findByMonth", query = "SELECT i FROM Ipsm i WHERE i.month = :month"),
-    @NamedQuery(name = "Ipsm.findByName", query = "SELECT i FROM Ipsm i WHERE i.name = :name"),
+    @NamedQuery(name = "Ipsm.findByReldate", query = "SELECT i FROM Ipsm i WHERE i.reldate = :reldate"),
+    @NamedQuery(name = "Ipsm.findByRelmonth", query = "SELECT i FROM Ipsm i WHERE i.relmonth = :relmonth"),
+    @NamedQuery(name = "Ipsm.findByRelname", query = "SELECT i FROM Ipsm i WHERE i.relname = :relname"),
     @NamedQuery(name = "Ipsm.findByIPSMSITESelectCloudservicesClickSearch", query = "SELECT i FROM Ipsm i WHERE i.iPSMSITESelectCloudservicesClickSearch = :iPSMSITESelectCloudservicesClickSearch"),
     @NamedQuery(name = "Ipsm.findByIPSMSITESearchSitePartname", query = "SELECT i FROM Ipsm i WHERE i.iPSMSITESearchSitePartname = :iPSMSITESearchSitePartname"),
     @NamedQuery(name = "Ipsm.findByIPSMSITESearchCircuitid", query = "SELECT i FROM Ipsm i WHERE i.iPSMSITESearchCircuitid = :iPSMSITESearchCircuitid"),
@@ -44,15 +47,15 @@ public class Ipsm implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Column(name = "Rel_date")
+    @Temporal(TemporalType.DATE)
+    private Date reldate;
     @Size(max = 20)
-    @Column(name = "date")
-    private String date;
+    @Column(name = "Rel_month")
+    private String relmonth;
     @Size(max = 20)
-    @Column(name = "month")
-    private String month;
-    @Size(max = 20)
-    @Column(name = "name")
-    private String name;
+    @Column(name = "Rel_name")
+    private String relname;
     @Size(max = 20)
     @Column(name = "IPSM_SITE_Select_Cloudservices_Click_Search")
     private String iPSMSITESelectCloudservicesClickSearch;
@@ -84,28 +87,28 @@ public class Ipsm implements Serializable {
         this.id = id;
     }
 
-    public String getDate() {
-        return date;
+    public Date getReldate() {
+        return reldate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setReldate(Date reldate) {
+        this.reldate = reldate;
     }
 
-    public String getMonth() {
-        return month;
+    public String getRelmonth() {
+        return relmonth;
     }
 
-    public void setMonth(String month) {
-        this.month = month;
+    public void setRelmonth(String relmonth) {
+        this.relmonth = relmonth;
     }
 
-    public String getName() {
-        return name;
+    public String getRelname() {
+        return relname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRelname(String relname) {
+        this.relname = relname;
     }
 
     public String getIPSMSITESelectCloudservicesClickSearch() {

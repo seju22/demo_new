@@ -7,6 +7,7 @@
 package com.test.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +17,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -29,16 +32,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Vdds.findAll", query = "SELECT v FROM Vdds v"),
     @NamedQuery(name = "Vdds.findById", query = "SELECT v FROM Vdds v WHERE v.id = :id"),
-    @NamedQuery(name = "Vdds.findByDate", query = "SELECT v FROM Vdds v WHERE v.date = :date"),
-    @NamedQuery(name = "Vdds.findByMonth", query = "SELECT v FROM Vdds v WHERE v.month = :month"),
-    @NamedQuery(name = "Vdds.findByName", query = "SELECT v FROM Vdds v WHERE v.name = :name"),
+    @NamedQuery(name = "Vdds.findByReldate", query = "SELECT v FROM Vdds v WHERE v.reldate = :reldate"),
+    @NamedQuery(name = "Vdds.findByRelmonth", query = "SELECT v FROM Vdds v WHERE v.relmonth = :relmonth"),
+    @NamedQuery(name = "Vdds.findByRelname", query = "SELECT v FROM Vdds v WHERE v.relname = :relname"),
     @NamedQuery(name = "Vdds.findByVDDSCircuitSearchCircuit", query = "SELECT v FROM Vdds v WHERE v.vDDSCircuitSearchCircuit = :vDDSCircuitSearchCircuit"),
     @NamedQuery(name = "Vdds.findByVDDSWorkOrderSearchWorkOrder", query = "SELECT v FROM Vdds v WHERE v.vDDSWorkOrderSearchWorkOrder = :vDDSWorkOrderSearchWorkOrder"),
     @NamedQuery(name = "Vdds.findByVDDSWSGetPVCChangeinfo", query = "SELECT v FROM Vdds v WHERE v.vDDSWSGetPVCChangeinfo = :vDDSWSGetPVCChangeinfo"),
     @NamedQuery(name = "Vdds.findByVDDSWSGetCircuitAndPvcsIPSM", query = "SELECT v FROM Vdds v WHERE v.vDDSWSGetCircuitAndPvcsIPSM = :vDDSWSGetCircuitAndPvcsIPSM"),
     @NamedQuery(name = "Vdds.findByVDDSTDMOrderApprove", query = "SELECT v FROM Vdds v WHERE v.vDDSTDMOrderApprove = :vDDSTDMOrderApprove"),
-    @NamedQuery(name = "Vdds.findByVDDSTDMOrderProvisioningSearchWorkOrder", query = "SELECT v FROM Vdds v WHERE v.vDDSTDMOrderProvisioningSearchWorkOrder = :vDDSTDMOrderProvisioningSearchWorkOrder"),
-    @NamedQuery(name = "Vdds.findByVDDSTDMOrderProvisioningClickSubmitProvisionButton", query = "SELECT v FROM Vdds v WHERE v.vDDSTDMOrderProvisioningClickSubmitProvisionButton = :vDDSTDMOrderProvisioningClickSubmitProvisionButton")})
+    @NamedQuery(name = "Vdds.findByVDDSTDMOrderProvisioningSearchWorkOrder", query = "SELECT v FROM Vdds v WHERE v.vDDSTDMOrderProvisioningSearchWorkOrder = :vDDSTDMOrderProvisioningSearchWorkOrder")})
 public class Vdds implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -46,15 +48,15 @@ public class Vdds implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Column(name = "Rel_date")
+    @Temporal(TemporalType.DATE)
+    private Date reldate;
     @Size(max = 30)
-    @Column(name = "date")
-    private String date;
-    @Size(max = 30)
-    @Column(name = "month")
-    private String month;
+    @Column(name = "Rel_month")
+    private String relmonth;
     @Size(max = 20)
-    @Column(name = "name")
-    private String name;
+    @Column(name = "Rel_name")
+    private String relname;
     @Size(max = 20)
     @Column(name = "VDDS_Circuit_Search_Circuit")
     private String vDDSCircuitSearchCircuit;
@@ -73,9 +75,6 @@ public class Vdds implements Serializable {
     @Size(max = 20)
     @Column(name = "VDDS_TDM_Order_Provisioning_Search_WorkOrder")
     private String vDDSTDMOrderProvisioningSearchWorkOrder;
-    @Size(max = 20)
-    @Column(name = "VDDS_TDM_Order_Provisioning_Click_Submit_Provision_Button")
-    private String vDDSTDMOrderProvisioningClickSubmitProvisionButton;
 
     public Vdds() {
     }
@@ -92,28 +91,28 @@ public class Vdds implements Serializable {
         this.id = id;
     }
 
-    public String getDate() {
-        return date;
+    public Date getReldate() {
+        return reldate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setReldate(Date reldate) {
+        this.reldate = reldate;
     }
 
-    public String getMonth() {
-        return month;
+    public String getRelmonth() {
+        return relmonth;
     }
 
-    public void setMonth(String month) {
-        this.month = month;
+    public void setRelmonth(String relmonth) {
+        this.relmonth = relmonth;
     }
 
-    public String getName() {
-        return name;
+    public String getRelname() {
+        return relname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRelname(String relname) {
+        this.relname = relname;
     }
 
     public String getVDDSCircuitSearchCircuit() {
@@ -162,14 +161,6 @@ public class Vdds implements Serializable {
 
     public void setVDDSTDMOrderProvisioningSearchWorkOrder(String vDDSTDMOrderProvisioningSearchWorkOrder) {
         this.vDDSTDMOrderProvisioningSearchWorkOrder = vDDSTDMOrderProvisioningSearchWorkOrder;
-    }
-
-    public String getVDDSTDMOrderProvisioningClickSubmitProvisionButton() {
-        return vDDSTDMOrderProvisioningClickSubmitProvisionButton;
-    }
-
-    public void setVDDSTDMOrderProvisioningClickSubmitProvisionButton(String vDDSTDMOrderProvisioningClickSubmitProvisionButton) {
-        this.vDDSTDMOrderProvisioningClickSubmitProvisionButton = vDDSTDMOrderProvisioningClickSubmitProvisionButton;
     }
 
     @Override

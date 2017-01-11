@@ -7,6 +7,7 @@
 package com.test.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +17,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -29,9 +32,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Bgw.findAll", query = "SELECT b FROM Bgw b"),
     @NamedQuery(name = "Bgw.findById", query = "SELECT b FROM Bgw b WHERE b.id = :id"),
-    @NamedQuery(name = "Bgw.findByDate", query = "SELECT b FROM Bgw b WHERE b.date = :date"),
-    @NamedQuery(name = "Bgw.findByMonth", query = "SELECT b FROM Bgw b WHERE b.month = :month"),
-    @NamedQuery(name = "Bgw.findByName", query = "SELECT b FROM Bgw b WHERE b.name = :name"),
+    @NamedQuery(name = "Bgw.findByReldate", query = "SELECT b FROM Bgw b WHERE b.reldate = :reldate"),
+    @NamedQuery(name = "Bgw.findByRelmonth", query = "SELECT b FROM Bgw b WHERE b.relmonth = :relmonth"),
+    @NamedQuery(name = "Bgw.findByRelname", query = "SELECT b FROM Bgw b WHERE b.relname = :relname"),
     @NamedQuery(name = "Bgw.findByBGWOpenEquipmentPage", query = "SELECT b FROM Bgw b WHERE b.bGWOpenEquipmentPage = :bGWOpenEquipmentPage"),
     @NamedQuery(name = "Bgw.findByBGWOpenAddAislePage", query = "SELECT b FROM Bgw b WHERE b.bGWOpenAddAislePage = :bGWOpenAddAislePage"),
     @NamedQuery(name = "Bgw.findByBGWLoadRackDetails", query = "SELECT b FROM Bgw b WHERE b.bGWLoadRackDetails = :bGWLoadRackDetails"),
@@ -55,15 +58,15 @@ public class Bgw implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Column(name = "Rel_date")
+    @Temporal(TemporalType.DATE)
+    private Date reldate;
     @Size(max = 20)
-    @Column(name = "date")
-    private String date;
-    @Size(max = 20)
-    @Column(name = "month")
-    private String month;
+    @Column(name = "Rel_month")
+    private String relmonth;
     @Size(max = 30)
-    @Column(name = "name")
-    private String name;
+    @Column(name = "Rel_name")
+    private String relname;
     @Size(max = 30)
     @Column(name = "BGW_Open_Equipment_Page")
     private String bGWOpenEquipmentPage;
@@ -128,28 +131,28 @@ public class Bgw implements Serializable {
         this.id = id;
     }
 
-    public String getDate() {
-        return date;
+    public Date getReldate() {
+        return reldate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setReldate(Date reldate) {
+        this.reldate = reldate;
     }
 
-    public String getMonth() {
-        return month;
+    public String getRelmonth() {
+        return relmonth;
     }
 
-    public void setMonth(String month) {
-        this.month = month;
+    public void setRelmonth(String relmonth) {
+        this.relmonth = relmonth;
     }
 
-    public String getName() {
-        return name;
+    public String getRelname() {
+        return relname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRelname(String relname) {
+        this.relname = relname;
     }
 
     public String getBGWOpenEquipmentPage() {

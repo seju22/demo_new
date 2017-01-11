@@ -11,6 +11,8 @@ import com.test.dao.IpsmDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -77,10 +79,17 @@ public class IpsmController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
+           SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+        java.util.Date date = null;
+        try {
+            date = sdf.parse(request.getParameter("date"));
+        } catch (ParseException ex) {
+            Logger.getLogger(BgwController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Ipsm ipsm=new Ipsm();
-            ipsm.setDate(request.getParameter("date"));
-            ipsm.setMonth(request.getParameter("month"));
-            ipsm.setName(request.getParameter("name"));  
+            ipsm.setReldate(date);
+            ipsm.setRelmonth(request.getParameter("month"));
+            ipsm.setRelname(request.getParameter("name"));  
             ipsm.setIPSMSITESelectCloudservicesClickSearch(request.getParameter("iPSMSITESelectCloudservicesClickSearch"));
             ipsm.setIPSMSITESearchSitePartname(request.getParameter("iPSMSITESearchSitePartname"));
             ipsm.setIPSMSITESearchCircuitid(request.getParameter("iPSMSITESearchCircuitid"));

@@ -11,6 +11,8 @@ import com.test.dao.SnmDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -78,15 +80,22 @@ public class SnmController extends HttpServlet {
             throws ServletException, IOException {
         try {
             //processRequest(request, response);
+             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+        java.util.Date date = null;
+        try {
+            date = sdf.parse(request.getParameter("date"));
+        } catch (ParseException ex) {
+            Logger.getLogger(BgwController.class.getName()).log(Level.SEVERE, null, ex);
+        }
             Snm s=new Snm();
-            s.setDate(request.getParameter("date"));
-            s.setMonth(request.getParameter("month"));
-            s.setName(request.getParameter("name"));  
+            s.setReldate(date);
+            s.setRelmonth(request.getParameter("month"));
+            s.setRelname(request.getParameter("name"));  
             s.setSNMAdvancedTrunkSearchSearchTrunks(request.getParameter("sNMAdvancedTrunkSearchSearchTrunks"));
-            s.setProvisionFindPortsField(request.getParameter("provisionFindPortsField"));
-            s.setProvisionAssign(request.getParameter("provisionAssign"));
+            s.setSNMCircuitAssignProvisionFindPortsField(request.getParameter("provisionFindPortsField"));
+            s.setSNMCircuitAssignProvisionAssign(request.getParameter("provisionAssignprovisionAssign"));
             s.setSNMCircuitViewModifyQuery(request.getParameter("sNMCircuitViewModifyQuery"));
-            s.setSNMNNIConnectionNewSearchNNI(request.getParameter("sNMNNIConnectionNewSearchNNI"));
+//            s.setSNMNNIConnectionNewSearchNNI(request.getParameter("sNMNNIConnectionNewSearchNNI"));
             s.setSNMWSfindAccessCicuitCapacityAtMultipleSites(request.getParameter("sNMWSfindAccessCicuitCapacityAtMultipleSites"));
             s.setSNMWSfindPathCapacity(request.getParameter("sNMWSfindPathCapacity"));
             s.setSNMWSgetNNICapacityFromSNM(request.getParameter("sNMWSgetNNICapacityFromSNM"));

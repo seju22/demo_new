@@ -16,6 +16,10 @@
         <servlet-name>BgwController</servlet-name>
         <servlet-class>com.test.controller.BgwController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Graphcontroller</servlet-name>
+        <servlet-class>com.test.controller.Graphcontroller</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BgwController</servlet-name>
         <url-pattern>/BgwController</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>IpsmController</servlet-name>
         <url-pattern>/IpsmController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Graphcontroller</servlet-name>
+        <url-pattern>/Graphcontroller</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

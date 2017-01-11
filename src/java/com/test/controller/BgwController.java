@@ -7,11 +7,13 @@ package com.test.controller;
  */
 
 import com.test.bean.Bgw;
-
+import static com.test.bean.Demo_.date;
 import com.test.dao.Dao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -75,16 +77,16 @@ public class BgwController extends HttpServlet {
               
                 try {
                   Bgw d=  demo.getById(id);
-                  if(d.getName().equalsIgnoreCase("BGW")){
+                  if(d.getRelname().equalsIgnoreCase("BGW")){
                        session.setAttribute("edit1", d);
                   }
-                  if(d.getName().equalsIgnoreCase("IVAPP")){
+                  if(d.getRelname().equalsIgnoreCase("IVAPP")){
                       session.setAttribute("edit2", d);
                   }
-                  if(d.getName().equalsIgnoreCase("SNM")){
+                  if(d.getRelname().equalsIgnoreCase("SNM")){
                        session.setAttribute("edit3", d);
                   }
-                  if(d.getName().equalsIgnoreCase("IPSM")){
+                  if(d.getRelname().equalsIgnoreCase("IPSM")){
                       session.setAttribute("edit4", d);
                   }
                    //session.setAttribute("edit", d);
@@ -122,12 +124,20 @@ public class BgwController extends HttpServlet {
             throws ServletException, IOException {
       //  processRequest(request, response);
    //  Demo d=new Demo();
-     Bgw b=new Bgw();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+        java.util.Date date = null;
+        try {
+            date = sdf.parse(request.getParameter("date"));
+        } catch (ParseException ex) {
+            Logger.getLogger(BgwController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Bgw b=new Bgw();
 
-            b.setDate(request.getParameter("date"));
+            b.setReldate(date);
                  System.out.println("date :"+request.getParameter("date"));
-            b.setMonth(request.getParameter("month"));
-            b.setName(request.getParameter("name"));  
+            b.setRelmonth(request.getParameter("month"));
+            b.setRelname(request.getParameter("name"));  
             b.setBGWOpenEquipmentPage(request.getParameter("bGWOpenEquipmentPage"));
             b.setBGWOpenAddAislePage(request.getParameter("bGWOpenAddAislePage"));
             b.setBGWLoadRackDetails(request.getParameter("bGWLoadRackDetails"));
@@ -143,7 +153,7 @@ public class BgwController extends HttpServlet {
             b.setBGWViewOrderOpenAuditsTab(request.getParameter("bGWViewOrderOpenAuditsTab"));
             b.setBGWViewOrderOpenInterfaceActivityTab(request.getParameter("bGWViewOrderOpenInterfaceActivityTab"));
             b.setBGWSearchTaskRecord(request.getParameter("bGWSearchTaskRecord"));
-            b.setBGWSearchTaskOpenTaskDetailPage(request.getParameter("BGW_Search_Task_Open_Task_Detail_Page"));
+            b.setBGWSearchTaskOpenTaskDetailPage(request.getParameter("bGWSearchTaskOpenTaskDetailPage"));
             
            System.out.println("id is :"+request.getParameter("id"));
             String id = request.getParameter("id");

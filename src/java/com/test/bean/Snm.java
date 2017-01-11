@@ -7,6 +7,7 @@
 package com.test.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +17,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -29,14 +32,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Snm.findAll", query = "SELECT s FROM Snm s"),
     @NamedQuery(name = "Snm.findById", query = "SELECT s FROM Snm s WHERE s.id = :id"),
-    @NamedQuery(name = "Snm.findByDate", query = "SELECT s FROM Snm s WHERE s.date = :date"),
-    @NamedQuery(name = "Snm.findByMonth", query = "SELECT s FROM Snm s WHERE s.month = :month"),
-    @NamedQuery(name = "Snm.findByName", query = "SELECT s FROM Snm s WHERE s.name = :name"),
+    @NamedQuery(name = "Snm.findByReldate", query = "SELECT s FROM Snm s WHERE s.reldate = :reldate"),
+    @NamedQuery(name = "Snm.findByRelmonth", query = "SELECT s FROM Snm s WHERE s.relmonth = :relmonth"),
+    @NamedQuery(name = "Snm.findByRelname", query = "SELECT s FROM Snm s WHERE s.relname = :relname"),
     @NamedQuery(name = "Snm.findBySNMAdvancedTrunkSearchSearchTrunks", query = "SELECT s FROM Snm s WHERE s.sNMAdvancedTrunkSearchSearchTrunks = :sNMAdvancedTrunkSearchSearchTrunks"),
-    @NamedQuery(name = "Snm.findByProvisionFindPortsField", query = "SELECT s FROM Snm s WHERE s.provisionFindPortsField = :provisionFindPortsField"),
-    @NamedQuery(name = "Snm.findByProvisionAssign", query = "SELECT s FROM Snm s WHERE s.provisionAssign = :provisionAssign"),
+    @NamedQuery(name = "Snm.findBySNMCircuitAssignProvisionFindPortsField", query = "SELECT s FROM Snm s WHERE s.sNMCircuitAssignProvisionFindPortsField = :sNMCircuitAssignProvisionFindPortsField"),
+    @NamedQuery(name = "Snm.findBySNMCircuitAssignProvisionAssign", query = "SELECT s FROM Snm s WHERE s.sNMCircuitAssignProvisionAssign = :sNMCircuitAssignProvisionAssign"),
     @NamedQuery(name = "Snm.findBySNMCircuitViewModifyQuery", query = "SELECT s FROM Snm s WHERE s.sNMCircuitViewModifyQuery = :sNMCircuitViewModifyQuery"),
-    @NamedQuery(name = "Snm.findBySNMNNIConnectionNewSearchNNI", query = "SELECT s FROM Snm s WHERE s.sNMNNIConnectionNewSearchNNI = :sNMNNIConnectionNewSearchNNI"),
     @NamedQuery(name = "Snm.findBySNMWSfindAccessCicuitCapacityAtMultipleSites", query = "SELECT s FROM Snm s WHERE s.sNMWSfindAccessCicuitCapacityAtMultipleSites = :sNMWSfindAccessCicuitCapacityAtMultipleSites"),
     @NamedQuery(name = "Snm.findBySNMWSfindPathCapacity", query = "SELECT s FROM Snm s WHERE s.sNMWSfindPathCapacity = :sNMWSfindPathCapacity"),
     @NamedQuery(name = "Snm.findBySNMWSgetNNICapacityFromSNM", query = "SELECT s FROM Snm s WHERE s.sNMWSgetNNICapacityFromSNM = :sNMWSgetNNICapacityFromSNM")})
@@ -47,30 +49,27 @@ public class Snm implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Column(name = "Rel_date")
+    @Temporal(TemporalType.DATE)
+    private Date reldate;
     @Size(max = 30)
-    @Column(name = "date")
-    private String date;
-    @Size(max = 30)
-    @Column(name = "month")
-    private String month;
+    @Column(name = "Rel_month")
+    private String relmonth;
     @Size(max = 20)
-    @Column(name = "name")
-    private String name;
+    @Column(name = "Rel_name")
+    private String relname;
     @Size(max = 20)
     @Column(name = "SNM_Advanced_Trunk_Search_Search_Trunks")
     private String sNMAdvancedTrunkSearchSearchTrunks;
     @Size(max = 20)
-    @Column(name = "Provision_Find_Ports_Field")
-    private String provisionFindPortsField;
+    @Column(name = "SNM_Circuit_Assign_Provision_Find_Ports_Field")
+    private String sNMCircuitAssignProvisionFindPortsField;
     @Size(max = 20)
-    @Column(name = "Provision_Assign")
-    private String provisionAssign;
+    @Column(name = "SNM_Circuit_Assign_Provision_Assign")
+    private String sNMCircuitAssignProvisionAssign;
     @Size(max = 20)
     @Column(name = "SNM_Circuit_View_Modify_Query")
     private String sNMCircuitViewModifyQuery;
-    @Size(max = 20)
-    @Column(name = "SNM_NNIConnection_New_Search_NNI")
-    private String sNMNNIConnectionNewSearchNNI;
     @Size(max = 20)
     @Column(name = "SNM_WS_find_Access_Cicuit_Capacity_At_Multiple_Sites")
     private String sNMWSfindAccessCicuitCapacityAtMultipleSites;
@@ -96,28 +95,28 @@ public class Snm implements Serializable {
         this.id = id;
     }
 
-    public String getDate() {
-        return date;
+    public Date getReldate() {
+        return reldate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setReldate(Date reldate) {
+        this.reldate = reldate;
     }
 
-    public String getMonth() {
-        return month;
+    public String getRelmonth() {
+        return relmonth;
     }
 
-    public void setMonth(String month) {
-        this.month = month;
+    public void setRelmonth(String relmonth) {
+        this.relmonth = relmonth;
     }
 
-    public String getName() {
-        return name;
+    public String getRelname() {
+        return relname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRelname(String relname) {
+        this.relname = relname;
     }
 
     public String getSNMAdvancedTrunkSearchSearchTrunks() {
@@ -128,20 +127,20 @@ public class Snm implements Serializable {
         this.sNMAdvancedTrunkSearchSearchTrunks = sNMAdvancedTrunkSearchSearchTrunks;
     }
 
-    public String getProvisionFindPortsField() {
-        return provisionFindPortsField;
+    public String getSNMCircuitAssignProvisionFindPortsField() {
+        return sNMCircuitAssignProvisionFindPortsField;
     }
 
-    public void setProvisionFindPortsField(String provisionFindPortsField) {
-        this.provisionFindPortsField = provisionFindPortsField;
+    public void setSNMCircuitAssignProvisionFindPortsField(String sNMCircuitAssignProvisionFindPortsField) {
+        this.sNMCircuitAssignProvisionFindPortsField = sNMCircuitAssignProvisionFindPortsField;
     }
 
-    public String getProvisionAssign() {
-        return provisionAssign;
+    public String getSNMCircuitAssignProvisionAssign() {
+        return sNMCircuitAssignProvisionAssign;
     }
 
-    public void setProvisionAssign(String provisionAssign) {
-        this.provisionAssign = provisionAssign;
+    public void setSNMCircuitAssignProvisionAssign(String sNMCircuitAssignProvisionAssign) {
+        this.sNMCircuitAssignProvisionAssign = sNMCircuitAssignProvisionAssign;
     }
 
     public String getSNMCircuitViewModifyQuery() {
@@ -150,14 +149,6 @@ public class Snm implements Serializable {
 
     public void setSNMCircuitViewModifyQuery(String sNMCircuitViewModifyQuery) {
         this.sNMCircuitViewModifyQuery = sNMCircuitViewModifyQuery;
-    }
-
-    public String getSNMNNIConnectionNewSearchNNI() {
-        return sNMNNIConnectionNewSearchNNI;
-    }
-
-    public void setSNMNNIConnectionNewSearchNNI(String sNMNNIConnectionNewSearchNNI) {
-        this.sNMNNIConnectionNewSearchNNI = sNMNNIConnectionNewSearchNNI;
     }
 
     public String getSNMWSfindAccessCicuitCapacityAtMultipleSites() {

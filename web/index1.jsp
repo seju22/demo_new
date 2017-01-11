@@ -1,5 +1,10 @@
 
 
+<%@page import="java.util.logging.Logger"%>
+<%@page import="java.util.logging.Level"%>
+<%@page import="java.text.ParseException"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@page import="com.test.bean.Ipsm"%>
 <%@page import="com.test.dao.IpsmDao"%>
 <%@page import="com.test.bean.Snm"%>
@@ -131,7 +136,7 @@ $('.m2id').val("");
         $('.m2col4').val("");
         $('.m2col5').val("");
         $('.m2col6').val("");
-        $('.m2col7').val("");
+//        $('.m2col7').val("");
               $('#myModal1').modal('hide');
               $('#myModal3').modal('hide');
               $('#myModal4').modal('hide');
@@ -146,10 +151,10 @@ $('.m2id').val("");
         $('.m3col2').val("");
         $('.m3col3').val("");
         $('.m3col4').val("");
-        $('.m3col5').val("");        
+//        $('.m3col5').val("");        
+        $('.m3col5').val("");
         $('.m3col6').val("");
         $('.m3col7').val("");
-        $('.m3col8').val("");
 //          $('#appId3').val($(this).val());
             $('#myModal1').modal('hide');
               $('#myModal2').modal('hide');
@@ -242,7 +247,23 @@ $('.m2id').val("");
                         }
 		</style>
                 		<!-- Scripts -->
-		
+		<style>
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 8px 38px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button4 {background-color: #F9F9FF;padding: 3px 42px;} /* Gray */ 
+
+</style>
   </head>
 
     <body class="image-background" bg-image="images/bg6.jpg">
@@ -298,22 +319,284 @@ $('.m2id').val("");
               <div class="col-md-10 col-md-offset-1">
 
                 <div class="about-section section-title title">
-                  <h1 class="text-center">Graph</h1>	  
+                  <h1 class="text-center">Performance Engineering</h1>	  
                 </div>
-		<div class="container">
-			<div class="row m-b-1">
-				
+                    <div class="col-md-3">
+                        <!--<a href="graph.jsp">Graph</a>-->
+                        <button type="submit" class="btn btn-primary"><a href="graph.jsp" style="color: #fff;">View</a></button>
+                    </div>
+                
+                   
+<!--		<div class="container">
+                    <div class="row">
+                    <form action="Graphcontroller" method="post">
+                    <div class="col-md-3">		
+                    <select class="form-control"  name="gName">
+                        <option value="" disabled selected>Choose</option>
+                        <option value="BGW">BGW</option>
+                        <option value="VDDS">VDDS</option>
+                        <option value="SNM" >SNM</option>
+                        <option value="IPSM">IPSM</option>
+                    </select>
+                    </div>
+                     <div class="col-md-3">		
+                           <input class="form-control" type="month" name="gMonth" />
+                               <select class="form-control"  name="gMonth">
+                                    <option value="" disabled selected>Choose</option>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April" >April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                            </select>          
+                    </div>
+                     <div class="col-md-3">
+                        <input class="form-control" type="date" name="gDate" />
+                     </div>
+                        <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    </form>
+                    </div>
+                    <div class="row">
+                        <div id="chart_div" style="width: 900px; height: 500px;"></div>
+                        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>	
+        <script>
+            $(document).ready(function(){
+                  google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(drawVisualization);
 
-				<div class="col-lg-10">
-						<div class="card shadow">
-						<h4 class="card-header">Graphical Representation of Transactions</h4>
-						<div class="card-block">
-							<div id="products-revenue-pie-chart"></div>
-						</div>
-					</div>
-				</div>
-			</div> <!-- row -->
-		</div> <!-- container -->
+
+                function drawVisualization() {
+                  // Some raw data (not necessarily accurate)
+                 
+                  var data = google.visualization.arrayToDataTable([
+                   ['Month','Rel.Month',],
+                   <% List<Ipsm> ipsm = (List<Ipsm>) request.getAttribute("ipsmList"); System.out.println("Return List "+ipsm); if(ipsm!=null){
+                    Iterator itr=ipsm.iterator();
+                    while(itr.hasNext()){
+                        Ipsm d1=(Ipsm)itr.next();
+                        String i1 =d1.getIPSMSITESearchCircuitid();
+                        String i2 = d1.getIPSMSITESearchSitePartname();
+                        String i3 = d1.getIPSMSITESelectCloudservicesClickSearch();
+                        String i4= d1.getIPSMVPNSelectCloudservicesClickSearch();
+                        String i5= d1.getIPSMWSUpdateSiteInfoInvoke(); 
+                        System.out.println("getIPSMWSUpdateSiteInfoInvoke List "+i5);
+                   %> 
+                                 ['Cloudservices ',<%=i3%>],
+                                 ['Partname',<%=i2%>],
+                                 ['CircuitID',<%=i1%>],
+                                 ['VPN services',<%=i4%>],
+                                 ['UpdateSiteInfo',<%=i5%>],
+                                  ]);
+                   <%
+                }
+                }
+%>
+                        
+                 
+
+              var options = {
+                title : 'Application Response Time Chart',
+                vAxis: {title: 'Avg. Response Time(Secs)'},
+//                hAxis: {title: 'Transcation Names'},
+                seriesType: 'bars',
+                series: {5: {type: 'line'}}
+              };
+
+              var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+              chart.draw(data, options);
+            }
+        });
+        </script>
+           <script>
+            $(document).ready(function(){
+                  google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(drawVisualization);
+
+
+                function drawVisualization() {
+                  // Some raw data (not necessarily accurate)
+                 
+                  var data = google.visualization.arrayToDataTable([
+                   ['Month','Rel.Month'],
+                   <% List<Snm> snm = (List<Snm>) request.getAttribute("snmList"); 
+                   if(snm!=null){
+                    Iterator itr=snm.iterator();
+                    while(itr.hasNext()){
+                        Snm s1=(Snm)itr.next();
+                        String i1 =s1.getSNMAdvancedTrunkSearchSearchTrunks();
+                        String i2=s1.getSNMCircuitAssignProvisionFindPortsField();
+                        String i3=s1.getSNMCircuitAssignProvisionAssign();
+                        String i4=s1.getSNMCircuitViewModifyQuery();
+//                        String i5=s1.getSNMNNIConnectionNewSearchNNI();
+                        String i5=s1.getSNMWSfindAccessCicuitCapacityAtMultipleSites();
+                        String i6=s1.getSNMWSfindPathCapacity();
+                        String i7=s1.getSNMWSgetNNICapacityFromSNM();
+                     
+                       
+                   %> 
+                                 ['SearchTrunks',<%=i3%>],
+                                 ['PortsField ',<%=i2%>],
+                                 ['ProvisionAssign',<%=i1%>],
+                                 ['ViewModifyQuery',<%=i4%>],
+                                 ['CapacityAtMultipleSites',<%=i5%>],
+                                 ['PathCapacity',<%=i6%>],
+                                 ['NNICapacity',<%=i7%>],
+                                 
+                                  ]);
+                   <%
+                }
+                }
+%>
+                        
+                 
+
+              var options = {
+                title : 'Application Response Time Chart',
+                vAxis: {title: 'Avg. Response Time(Secs)'},
+//                hAxis: {title: 'Transcation Names'},
+                seriesType: 'bars',
+                series: {5: {type: 'line'}}
+              };
+
+              var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+              chart.draw(data, options);
+            }
+        });
+        </script>
+         <script>
+            $(document).ready(function(){
+                  google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(drawVisualization);
+
+
+                function drawVisualization() {
+                  // Some raw data (not necessarily accurate)
+                 
+                  var data = google.visualization.arrayToDataTable([
+                   ['Month','Rel.Month'],
+                   <% List<Vdds> vdds = (List<Vdds>) request.getAttribute("vddsList"); 
+                   if(vdds!=null){
+                    Iterator itr=vdds.iterator();
+                    while(itr.hasNext()){
+                        Vdds v1=(Vdds)itr.next();
+                        String i1 =v1.getVDDSCircuitSearchCircuit();
+                        String i2=v1.getVDDSTDMOrderProvisioningSearchWorkOrder();
+                        String i3=v1.getVDDSWSGetPVCChangeinfo();
+                        String i4=v1.getVDDSWSGetCircuitAndPvcsIPSM();
+                        String i5=v1.getVDDSTDMOrderApprove();
+                        String i6=v1.getVDDSWorkOrderSearchWorkOrder();
+                      
+                   %> 
+                                 ['SearchCircuit',<%=i1%>],
+                                 ['SearchWorkOrder ',<%=i2%>],
+                                 ['PVCChangeinfo',<%=i3%>],
+                                 ['CircuitAndPvcsIPSM',<%=i4%>],
+                                 ['OrderApprove',<%=i5%>],
+                                 ['SearchWorkOrder',<%=i6%>],
+                              
+                                  ]);
+                   <%
+                }
+                }
+%>
+                        
+                 
+
+              var options = {
+                title : 'Application Response Time Chart',
+                vAxis: {title: 'Avg. Response Time(Secs)'},
+//                hAxis: {title: 'Transcation Names'},
+                seriesType: 'bars',
+                series: {5: {type: 'line'}}
+              };
+
+              var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+              chart.draw(data, options);
+            }
+        });
+        </script>
+         <script>
+            $(document).ready(function(){
+                  google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(drawVisualization);
+
+
+                function drawVisualization() {
+                  // Some raw data (not necessarily accurate)
+                 
+                  var data = google.visualization.arrayToDataTable([
+                   ['Month','Rel.Month'],
+                   <% List<Bgw> bgw = (List<Bgw>) request.getAttribute("bgwList"); 
+                   if(bgw!=null){
+                    Iterator itr=bgw.iterator();
+                    while(itr.hasNext()){
+                        Bgw b1=(Bgw)itr.next();
+                        String i1 =b1.getBGWOpenEquipmentPage();
+                        String i2 =b1.getBGWOpenAddAislePage();
+                        String i3 =b1.getBGWLoadRackDetails();
+                        String i4 =b1.getBGWPathSelectPath();
+                        String i5 =b1.getBGWPathOpenCircuitIdDetails();
+                        String i6 =b1.getBGWPathOpenCircuitViewPage();
+                        String i7 =b1.getBGWPathOpenPrintViewPage();
+                        String i8 =b1.getBGWPathOpenCircuitPremisesPage();
+                        String i9 =b1.getBGWPathClickModify();
+                        String i10 =b1.getBGWSiteOpenAddNewSitePage();
+                        String i11 =b1.getBGWViewOrderOpenViewOrderPage();
+                        String i12 =b1.getBGWViewOrderOpenDetailsPage();
+                        String i13 =b1.getBGWViewOrderOpenAuditsTab();
+                        String i14 =b1.getBGWViewOrderOpenInterfaceActivityTab();
+                        String i15 =b1.getBGWSearchTaskRecord();
+                        String i16 =b1.getBGWSearchTaskOpenTaskDetailPage();
+                                   
+                   %> 
+                                 ['OpenEquipment',<%=i1%>],
+                                 ['OpenAddAisle ',<%=i2%>],
+                                 ['LoadRackDetails',<%=i3%>],
+                                 ['PathSelectPath',<%=i4%>],
+                                 ['CircuitIdDetails',<%=i5%>],
+                                 ['CircuitViewPage',<%=i6%>],
+                                 ['PrintViewPage',<%=i7%>],  
+                                 ['PremisesPage',<%=i8%>],
+                                 ['ClickModify ',<%=i9%>],
+                                 ['AddNewSite',<%=i10%>],
+                                 ['OpenViewOrder',<%=i11%>],
+                                 ['OpenDetails',<%=i12%>],
+                                 ['OpenAudits',<%=i13%>],
+                                 ['InterfaceActivity',<%=i14%>],  
+                                 ['TaskRecord',<%=i15%>],
+                                 ['TaskDetail',<%=i16%>],
+                                  ]);
+                   <%
+                }
+                }
+%>
+                        
+                 
+
+              var options = {
+                title : 'Application Response Time Chart',
+                vAxis: {title: 'Avg. Response Time(Secs)'},
+//                hAxis: {title: 'Transcation Names'},
+                seriesType: 'bars',
+                series: {5: {type: 'line'}}
+              };
+
+              var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+              chart.draw(data, options);
+            }
+        });
+        </script>
+                  </div>
+		</div>  container -->
 
               </div><!-- End col -->
             </div><!-- End row -->
@@ -421,13 +704,29 @@ $('.m2id').val("");
                                     <div class="form-group has-warning col-xs-4">
                                         <label class="col-xs-4 control-label" for="inputSuccess">Rel.Month</label>
                                         <div class="col-xs-8" style="padding-top: 24px;">
-                                            <input class="form-control m1month" type="month" name="month" value="${edit1.month}" />
+                                            <!--<input class="form-control m1month"  name="month" value="${edit1.month}" />-->
+                                             <select class="form-control"  name="month">
+                                                <option value="" disabled selected>Choose</option>
+                                                <option value="1">January</option>
+                                                <option value="2">February</option>
+                                                <option value="3">March</option>
+                                                <option value="4" >April</option>
+                                                <option value="5">May</option>
+                                                <option value="6">June</option>
+                                                <option value="7">July</option>
+                                                <option value="8">August</option>
+                                                <option value="9">September</option>
+                                                <option value="10">October</option>
+                                                <option value="11">November</option>
+                                                <option value="12">December</option>
+                                            </select>
                                         </div>
                                     </div>
                                          <div class="form-group has-warning col-xs-4">
                                         <label class="col-xs-4 control-label" for="inputSuccess">Date</label>
                                         <div class="col-xs-8" style="padding-top: 24px;">
-                                            <input class="form-control m1date" type="date" name="date" value="${edit1.date}"/>
+                                            <!--<input class="form-control m1date" type="date" name="date" value="${edit1.date}"/>-->
+                                                <input  class="form-control m1date" type="text" id="datepicker1" name="date" >
                                         </div>
                                     </div>
                                 </div>
@@ -561,6 +860,7 @@ $('.m2id').val("");
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
                         <button type="submit" class="btn btn-primary">Submit</button>
+                         <!--<a href="graph.jsp">graph</a>-->
                     </div>
                 </form>
                 </div>
@@ -590,13 +890,29 @@ $('.m2id').val("");
                                     <div class="form-group has-warning col-xs-4">
                                         <label class="col-xs-4 control-label" for="inputSuccess">Rel.Month</label>
                                         <div class="col-xs-8" style="padding-top: 24px;">
-                                            <input type="month"  class="form-control m2month" name="month" value="${edit2.month}" />
+                                            <!--<input type="month"  class="form-control m2month" name="month" value="${edit2.month}" />-->
+                                              <select class="form-control"  name="month">
+                                                <option value="" disabled selected>Choose</option>
+                                                <option value="1">January</option>
+                                                <option value="2">February</option>
+                                                <option value="3">March</option>
+                                                <option value="4" >April</option>
+                                                <option value="5">May</option>
+                                                <option value="6">June</option>
+                                                <option value="7">July</option>
+                                                <option value="8">August</option>
+                                                <option value="9">September</option>
+                                                <option value="10">October</option>
+                                                <option value="11">November</option>
+                                                <option value="12">December</option>
+                                            </select>
                                         </div>
                                     </div>
                                          <div class="form-group has-warning col-xs-4">
                                         <label class="col-xs-4 control-label" for="inputSuccess">Date</label>
                                         <div class="col-xs-8" style="padding-top: 24px;">
-                                            <input type="date" class="form-control m2date" name="date" value="${edit2.date}"/>
+                                            <!--<input type="date" class="form-control m2date" name="date" value="${edit2.date}"/>-->
+                                            <input  class="form-control m2date" type="text" id="datepicker2" name="date" >
                                         </div>
                                     </div>
                                 </div>
@@ -697,13 +1013,29 @@ $('.m2id').val("");
                                     <div class="form-group has-warning col-xs-4">
                                         <label class="col-xs-4 control-label" for="inputSuccess">Rel.Month</label>
                                         <div class="col-xs-8" style="padding-top: 24px;">
-                                            <input type="month" class="form-control m3month"  name="month" value="${edit3.month}" />
+                                            <!--<input type="month" class="form-control m3month"  name="month" value="${edit3.month}" />-->
+                                              <select class="form-control"  name="month">
+                                                <option value="" disabled selected>Choose</option>
+                                                <option value="1">January</option>
+                                                <option value="2">February</option>
+                                                <option value="3">March</option>
+                                                <option value="4" >April</option>
+                                                <option value="5">May</option>
+                                                <option value="6">June</option>
+                                                <option value="7">July</option>
+                                                <option value="8">August</option>
+                                                <option value="9">September</option>
+                                                <option value="10">October</option>
+                                                <option value="11">November</option>
+                                                <option value="12">December</option>
+                                            </select>
                                         </div>
                                     </div>
                                          <div class="form-group has-warning col-xs-4">
                                         <label class="col-xs-4 control-label" for="inputSuccess">Date</label>
                                         <div class="col-xs-8" style="padding-top: 24px;">
-                                            <input type="date" class="form-control m3date"  name="date" value="${edit3.date}"/>
+                                            <!--<input type="date" class="form-control m3date"  name="date" value="${edit3.date}"/>-->
+                                            <input  class="form-control m3date" type="text" id="datepicker3" name="date" >
                                         </div>
                                     </div>
                                 </div>
@@ -809,13 +1141,29 @@ $('.m2id').val("");
                                     <div class="form-group has-warning col-xs-4">
                                         <label class="col-xs-4 control-label" for="inputSuccess">Rel.Month</label>
                                         <div class="col-xs-8" style="padding-top: 24px;">
-                                            <input type="month" class="form-control m4month"  name="month" value="${edit4.month}" />
+                                            <!--<input type="month" class="form-control m4month"  name="month" value="${edit4.month}" />-->
+                                              <select class="form-control"  name="month">
+                                                <option value="" disabled selected>Choose</option>
+                                                <option value="1">January</option>
+                                                <option value="2">February</option>
+                                                <option value="3">March</option>
+                                                <option value="4" >April</option>
+                                                <option value="5">May</option>
+                                                <option value="6">June</option>
+                                                <option value="7">July</option>
+                                                <option value="8">August</option>
+                                                <option value="9">September</option>
+                                                <option value="10">October</option>
+                                                <option value="11">November</option>
+                                                <option value="12">December</option>
+                                            </select>
                                         </div>
                                     </div>
                                          <div class="form-group has-warning col-xs-4">
                                         <label class="col-xs-4 control-label" for="inputSuccess">Date</label>
                                         <div class="col-xs-8" style="padding-top: 24px;">
-                                            <input type="date" class="form-control m4date"  name="date" value="${edit4.date}"/>
+                                            <!--<input type="date" class="form-control m4date"  name="date" value="${edit4.date}"/>-->
+                                            <input  class="form-control m4date" type="text" id="datepicker4" name="date" >
                                         </div>
                                     </div>
                                 </div>
@@ -925,7 +1273,10 @@ $('.m2id').val("");
                                                        
                                             <%
                 int id;
-                String date;
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+        java.util.Date date = null;
+        
+               
                 String month;
                 String name;
                 String col1;
@@ -952,9 +1303,9 @@ $('.m2id').val("");
                     while(itr.hasNext()){
                         Bgw d=(Bgw)itr.next();
                         id=d.getId();
-                        date=d.getDate();
-                        month=d.getMonth();
-                        name=d.getName();
+                        date=d.getReldate();
+                        month=d.getRelmonth();
+                        name=d.getRelname();
                         col1=d.getBGWOpenEquipmentPage();
                         col2=d.getBGWOpenAddAislePage();
                         col3=d.getBGWLoadRackDetails();
@@ -1009,44 +1360,44 @@ $('.m2id').val("");
 										
 									</div>
 									  <!-- Table -->
-									<!--<table id="mytable" class="table" >-->
-                            <table id="example1" class="table table-striped table-bordered" cellspacing="0" width="100%">                                   
+                                                                          <table id="example3" class="table table-striped table-bordered" cellspacing="0" width="100%">                                   
 										<thead>
 										  <tr>
 											
-					<!--<th>Id</th>-->		
-                                        <th style="width:14%">Application Name</th>
+					<!--<th>Id</th>-->	
+                                        
+					<th style="width:14%">Application Name</th>
                                         <th style="width:7%">Rel.Month</th>
-                                        <th style="width:12%">Test Date</th>					
+                                        <th style="width:12%">Test Date</th>
                                         <!--<th style="width:10%">Action</th>-->
 										  </tr>
 										</thead>
 										<tbody> 
                                                        
                                             <%
-                int id2;
-                String date2;
-                String month2;
-                String name2;
-             IpsmDao v=new IpsmDao();
-                List list1=v.displayIpsm();
-                if(list1!=null){
-                    Iterator itr=list1.iterator();
+                int id4;
+                Date date4;
+                String month4;
+                String name4;
+             VddsDao i=new VddsDao();
+                List list4=i.displayVdds();
+                if(list4!=null){
+                    Iterator itr=list4.iterator();
                     while(itr.hasNext()){
-                        Ipsm d=(Ipsm)itr.next();
-                        id2=d.getId();
-                        date2=d.getDate();
-                        month2=d.getMonth();
-                        name2=d.getName();
+                        Vdds d=(Vdds)itr.next();
+                        id4=d.getId();
+                        date4=d.getReldate();
+                        month4=d.getRelmonth();
+                        name4=d.getRelname();
                         
                                              
                                    %>
             <tr>
-<!--            <td><%=id2%></td>-->
-                   <td><%=name2%></td>   
-                <td><%=month2%></td>  
-                <td><%=date2%></td>                  
-             
+<!--            <td><%=id4%></td>-->
+                <td><%=name4%></td>   
+                <td><%=month4%></td>  
+                <td><%=date4%></td>                  
+                
                
                 <!--<td><a href="#">Edit</a>|<a href="#">Delete</a></td>--> 
                 
@@ -1058,6 +1409,8 @@ $('.m2id').val("");
 										  
 										</tbody>
 									</table>
+									<!--<table id="mytable" class="table" >-->
+                           
 								</div>
 
 							</div>
@@ -1094,7 +1447,7 @@ $('.m2id').val("");
                                                        
                                             <%
                 int id3;
-                String date3;
+                Date date3;
                 String month3;
                 String name3;
              SnmDao s=new SnmDao();
@@ -1104,9 +1457,9 @@ $('.m2id').val("");
                     while(itr.hasNext()){
                         Snm d=(Snm)itr.next();
                         id3=d.getId();
-                        date3=d.getDate();
-                        month3=d.getMonth();
-                        name3=d.getName();
+                        date3=d.getReldate();
+                        month3=d.getRelmonth();
+                        name3=d.getRelname();
                         
                                              
                                    %>
@@ -1147,44 +1500,44 @@ $('.m2id').val("");
 									</div>
 									  <!-- Table -->
 									<!--<table id="mytable" class="table" >-->
-                            <table id="example3" class="table table-striped table-bordered" cellspacing="0" width="100%">                                   
+                           
+                                                                         <table id="example1" class="table table-striped table-bordered" cellspacing="0" width="100%">                                   
 										<thead>
 										  <tr>
 											
-					<!--<th>Id</th>-->	
-                                        
-					<th style="width:14%">Application Name</th>
+					<!--<th>Id</th>-->		
+                                        <th style="width:14%">Application Name</th>
                                         <th style="width:7%">Rel.Month</th>
-                                        <th style="width:12%">Test Date</th>
+                                        <th style="width:12%">Test Date</th>					
                                         <!--<th style="width:10%">Action</th>-->
 										  </tr>
 										</thead>
 										<tbody> 
                                                        
                                             <%
-                int id4;
-                String date4;
-                String month4;
-                String name4;
-             VddsDao i=new VddsDao();
-                List list4=i.displayVdds();
-                if(list4!=null){
-                    Iterator itr=list4.iterator();
+                int id2;
+                Date date2;
+                String month2;
+                String name2;
+             IpsmDao v=new IpsmDao();
+                List list1=v.displayIpsm();
+                if(list1!=null){
+                    Iterator itr=list1.iterator();
                     while(itr.hasNext()){
-                        Vdds d=(Vdds)itr.next();
-                        id4=d.getId();
-                        date4=d.getDate();
-                        month4=d.getMonth();
-                        name4=d.getName();
+                        Ipsm d=(Ipsm)itr.next();
+                        id2=d.getId();
+                        date2=d.getReldate();
+                        month2=d.getRelmonth();
+                        name2=d.getRelname();
                         
                                              
                                    %>
             <tr>
-<!--            <td><%=id4%></td>-->
-                <td><%=name4%></td>   
-                <td><%=month4%></td>  
-                <td><%=date4%></td>                  
-                
+<!--            <td><%=id2%></td>-->
+                   <td><%=name2%></td>   
+                <td><%=month2%></td>  
+                <td><%=date2%></td>                  
+             
                
                 <!--<td><a href="#">Edit</a>|<a href="#">Delete</a></td>--> 
                 
@@ -1254,45 +1607,7 @@ $('.m2id').val("");
 		<script src="assets/bootstrap/bootstrap4-alpha3.min.js"></script>
 		<!--<script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>-->
                   <script src="Accets1/js/canvasjs.min.js"></script>
-	<script>
-			$(function () {
-				var totalRevenue = 15341110;
-				
-				
-				var productsRevenuePieChart = new CanvasJS.Chart("products-revenue-pie-chart", {
-					animationEnabled: true,
-					theme: "theme2",
-					legend: {
-						fontSize: 1
-					},
-					toolTip: {
-						borderThickness: 0,
-						content: "<span style='\"'color: {color};'\"'>{name}</span>: ${y} (#percent%)",
-						cornerRadius: 0
-					},
-					data: [
-						{       
-							indexLabelFontColor: "#676464",
-							indexLabelFontSize: 14,
-							legendMarkerType: "square",
-							legendText: "{indexLabel}",
-							showInLegend: true,
-							startAngle:  90,
-							type: "pie",
-							dataPoints: [
-								{  y: 6289855, name:"BGW", indexLabel: "BGW - 41%", legendText: "BGW", exploded: true },
-								{  y: 2761400, name:"VDDS", indexLabel: "VDDS - 18%", legendText: "VDDS" },
-								{  y: 3681866, name:"SNM", indexLabel: "SNM - 24%", legendText: "SNM", color: "#8064a1" },
-								{  y: 2607989, name:"IPSM", indexLabel: "IPSM - 17%", legendText: "IPSM" }
-							]
-						}
-					]
-				});
-				
-				productsRevenuePieChart.render();
-				
-			});
-		</script>
+	
     <script>
         $(document).ready(function() {
     var dataTable = $('#example').dataTable({
@@ -1399,7 +1714,18 @@ $('.m2id').val("");
            
        </script>
        
-		
+	     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker1" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    $( "#datepicker2" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    $( "#datepicker3" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    $( "#datepicker4" ).datepicker({ dateFormat: 'yy-mm-dd' });
+  } );
+  </script>
     	
   </body>
 </html>
