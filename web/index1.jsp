@@ -113,6 +113,8 @@ $('.m1col13').val("");
 $('.m1col14').val("");
 $('.m1col15').val("");
 $('.m1col16').val("");
+$('.m1col17').val("");
+$('.m1col18').val("");
 
           $('#appName1').val($(this).val());
               $('#myModal2').modal('hide');
@@ -704,22 +706,7 @@ $('.m2id').val("");
                                     <div class="form-group has-warning col-xs-4">
                                         <label class="col-xs-4 control-label" for="inputSuccess">Rel.Month</label>
                                         <div class="col-xs-8" style="padding-top: 24px;">
-                                            <!--<input class="form-control m1month"  name="month" value="${edit1.month}" />-->
-                                             <select class="form-control"  name="month">
-                                                <option value="" disabled selected>Choose</option>
-                                                <option value="1">January</option>
-                                                <option value="2">February</option>
-                                                <option value="3">March</option>
-                                                <option value="4" >April</option>
-                                                <option value="5">May</option>
-                                                <option value="6">June</option>
-                                                <option value="7">July</option>
-                                                <option value="8">August</option>
-                                                <option value="9">September</option>
-                                                <option value="10">October</option>
-                                                <option value="11">November</option>
-                                                <option value="12">December</option>
-                                            </select>
+                                           <input class="form-control" type="text" name="month" id="datepickerBGW"/>  
                                         </div>
                                     </div>
                                          <div class="form-group has-warning col-xs-4">
@@ -853,6 +840,18 @@ $('.m2id').val("");
                                             <input type="text" class="form-control m1col16" name="bGWSearchTaskOpenTaskDetailPage" min="0" max="100" step="0.1" value="${edit1.col16}"  required/>
                                         </div>
                                     </div>
+                                         <div class="form-group has-success col-xs-4">
+                                          <label class="col-xs-6 control-label" for="inputSuccess">View Order Open SNC CC Info</label>
+                                        <div class="col-xs-6" style="padding-top: 24px;">
+                                            <input type="text" class="form-control m1col17" name="bGWSearchViewOrderOpenSncCcInfo" min="0" max="100" step="0.1" value="${edit1.col17}"  required/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success col-xs-4">
+                                    <label class="col-xs-6 control-label" for="inputSuccess">View Order Click CircuitId Hyperlink</label>
+                                    <div class="col-xs-6" style="padding-top: 24px;">
+                                    <input type="text" class="form-control m1col18" name="bGWSearchViewOrderClickCircuitIdHyperlink" min="0" max="100" step="0.1" value="${edit1.col18}"  required/>
+                                        </div>
+                                    </div>
                                      </div>
                                     </div>
                                             <c:remove var="edit1"  scope="session"/>
@@ -890,22 +889,8 @@ $('.m2id').val("");
                                     <div class="form-group has-warning col-xs-4">
                                         <label class="col-xs-4 control-label" for="inputSuccess">Rel.Month</label>
                                         <div class="col-xs-8" style="padding-top: 24px;">
-                                            <!--<input type="month"  class="form-control m2month" name="month" value="${edit2.month}" />-->
-                                              <select class="form-control"  name="month">
-                                                <option value="" disabled selected>Choose</option>
-                                                <option value="1">January</option>
-                                                <option value="2">February</option>
-                                                <option value="3">March</option>
-                                                <option value="4" >April</option>
-                                                <option value="5">May</option>
-                                                <option value="6">June</option>
-                                                <option value="7">July</option>
-                                                <option value="8">August</option>
-                                                <option value="9">September</option>
-                                                <option value="10">October</option>
-                                                <option value="11">November</option>
-                                                <option value="12">December</option>
-                                            </select>
+                                         <!--<input type="month"  class="form-control m2month" name="month" value="${edit2.month}" />-->
+                                         <input class="form-control" type="text" name="month" id="datepickerVDDS"/>  
                                         </div>
                                     </div>
                                          <div class="form-group has-warning col-xs-4">
@@ -1014,21 +999,7 @@ $('.m2id').val("");
                                         <label class="col-xs-4 control-label" for="inputSuccess">Rel.Month</label>
                                         <div class="col-xs-8" style="padding-top: 24px;">
                                             <!--<input type="month" class="form-control m3month"  name="month" value="${edit3.month}" />-->
-                                              <select class="form-control"  name="month">
-                                                <option value="" disabled selected>Choose</option>
-                                                <option value="1">January</option>
-                                                <option value="2">February</option>
-                                                <option value="3">March</option>
-                                                <option value="4" >April</option>
-                                                <option value="5">May</option>
-                                                <option value="6">June</option>
-                                                <option value="7">July</option>
-                                                <option value="8">August</option>
-                                                <option value="9">September</option>
-                                                <option value="10">October</option>
-                                                <option value="11">November</option>
-                                                <option value="12">December</option>
-                                            </select>
+                                            <input class="form-control" type="text" name="month" id="datepickerSNM"/>  
                                         </div>
                                     </div>
                                          <div class="form-group has-warning col-xs-4">
@@ -1142,21 +1113,7 @@ $('.m2id').val("");
                                         <label class="col-xs-4 control-label" for="inputSuccess">Rel.Month</label>
                                         <div class="col-xs-8" style="padding-top: 24px;">
                                             <!--<input type="month" class="form-control m4month"  name="month" value="${edit4.month}" />-->
-                                              <select class="form-control"  name="month">
-                                                <option value="" disabled selected>Choose</option>
-                                                <option value="1">January</option>
-                                                <option value="2">February</option>
-                                                <option value="3">March</option>
-                                                <option value="4" >April</option>
-                                                <option value="5">May</option>
-                                                <option value="6">June</option>
-                                                <option value="7">July</option>
-                                                <option value="8">August</option>
-                                                <option value="9">September</option>
-                                                <option value="10">October</option>
-                                                <option value="11">November</option>
-                                                <option value="12">December</option>
-                                            </select>
+                                              <input class="form-control" type="text" name="month" id="datepickerIPSM"/>  
                                         </div>
                                     </div>
                                          <div class="form-group has-warning col-xs-4">
@@ -1294,7 +1251,9 @@ $('.m2id').val("");
                 String col13;
                 String col14;
                 String col15;
-                String col16;              
+                String col16;    
+                String col17;     
+                String col18;     
                                
              Dao dao=new Dao();
                 List list=dao.display();
@@ -1305,7 +1264,7 @@ $('.m2id').val("");
                         id=d.getId();
                         date=d.getReldate();
                         month=d.getRelmonth();
-                        name=d.getRelname();
+                        name=d.getAppname();
                         col1=d.getBGWOpenEquipmentPage();
                         col2=d.getBGWOpenAddAislePage();
                         col3=d.getBGWLoadRackDetails();
@@ -1321,7 +1280,10 @@ $('.m2id').val("");
                         col13=d.getBGWViewOrderOpenAuditsTab();
                         col14=d.getBGWViewOrderOpenInterfaceActivityTab();
                         col15=d.getBGWSearchTaskRecord();
-                        col16=d.getBGWSearchTaskOpenTaskDetailPage();         
+                        col16=d.getBGWSearchTaskOpenTaskDetailPage(); 
+                        col17=d.getbGWSearchViewOrderOpenSncCcInfo();
+                        col18=d.getbGWSearchViewOrderClickCircuitIdHyperlink();
+                        
                                              
                                    %>
             <tr>
@@ -1388,7 +1350,7 @@ $('.m2id').val("");
                         id4=d.getId();
                         date4=d.getReldate();
                         month4=d.getRelmonth();
-                        name4=d.getRelname();
+                        name4=d.getAppname();
                         
                                              
                                    %>
@@ -1459,7 +1421,7 @@ $('.m2id').val("");
                         id3=d.getId();
                         date3=d.getReldate();
                         month3=d.getRelmonth();
-                        name3=d.getRelname();
+                        name3=d.getAppname();
                         
                                              
                                    %>
@@ -1528,7 +1490,7 @@ $('.m2id').val("");
                         id2=d.getId();
                         date2=d.getReldate();
                         month2=d.getRelmonth();
-                        name2=d.getRelname();
+                        name2=d.getAppname();
                         
                                              
                                    %>
@@ -1720,6 +1682,78 @@ $('.m2id').val("");
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
+    $('#datepickerBGW').datepicker( {
+    	changeMonth: true,
+    	changeYear: true,
+    	showButtonPanel: true,
+    	dateFormat: 'mm-yy',
+    	onChangeMonthYear: function(year, month, widget) {
+            setTimeout(function() {
+               $('.ui-datepicker-calendar').hide();
+            });
+    	},
+    	onClose: function(dateText, inst) { 
+    		var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+    		var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+    		$(this).datepicker('setDate', new Date(year, month, 1));
+    	},
+    }).click(function(){
+    	$('.ui-datepicker-calendar').hide();
+    });
+    $('#datepickerIPSM').datepicker( {
+    	changeMonth: true,
+    	changeYear: true,
+    	showButtonPanel: true,
+    	dateFormat: 'mm-yy',
+    	onChangeMonthYear: function(year, month, widget) {
+            setTimeout(function() {
+               $('.ui-datepicker-calendar').hide();
+            });
+    	},
+    	onClose: function(dateText, inst) { 
+    		var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+    		var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+    		$(this).datepicker('setDate', new Date(year, month, 1));
+    	},
+    }).click(function(){
+    	$('.ui-datepicker-calendar').hide();
+    });
+    $('#datepickerSNM').datepicker( {
+    	changeMonth: true,
+    	changeYear: true,
+    	showButtonPanel: true,
+    	dateFormat: 'mm-yy',
+    	onChangeMonthYear: function(year, month, widget) {
+            setTimeout(function() {
+               $('.ui-datepicker-calendar').hide();
+            });
+    	},
+    	onClose: function(dateText, inst) { 
+    		var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+    		var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+    		$(this).datepicker('setDate', new Date(year, month, 1));
+    	},
+    }).click(function(){
+    	$('.ui-datepicker-calendar').hide();
+    });
+    $('#datepickerVDDS').datepicker( {
+    	changeMonth: true,
+    	changeYear: true,
+    	showButtonPanel: true,
+    	dateFormat: 'mm-yy',
+    	onChangeMonthYear: function(year, month, widget) {
+            setTimeout(function() {
+               $('.ui-datepicker-calendar').hide();
+            });
+    	},
+    	onClose: function(dateText, inst) { 
+    		var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+    		var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+    		$(this).datepicker('setDate', new Date(year, month, 1));
+    	},
+    }).click(function(){
+    	$('.ui-datepicker-calendar').hide();
+    });
     $( "#datepicker1" ).datepicker({ dateFormat: 'yy-mm-dd' });
     $( "#datepicker2" ).datepicker({ dateFormat: 'yy-mm-dd' });
     $( "#datepicker3" ).datepicker({ dateFormat: 'yy-mm-dd' });

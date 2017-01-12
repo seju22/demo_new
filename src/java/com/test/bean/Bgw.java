@@ -65,8 +65,9 @@ public class Bgw implements Serializable {
     @Column(name = "Rel_month")
     private String relmonth;
     @Size(max = 30)
-    @Column(name = "Rel_name")
-    private String relname;
+    @Column(name = "App_name")
+    private String appname;
+
     @Size(max = 30)
     @Column(name = "BGW_Open_Equipment_Page")
     private String bGWOpenEquipmentPage;
@@ -115,7 +116,12 @@ public class Bgw implements Serializable {
     @Size(max = 30)
     @Column(name = "BGW_Search_Task_Open_Task_Detail_Page")
     private String bGWSearchTaskOpenTaskDetailPage;
+    @Column(name = "BGW_Search_View_Order_Open_SNC_CC_Info")
+    private String bGWSearchViewOrderOpenSncCcInfo;
+    @Column(name = "BGW_Search_View_Order_Click_Circuit_Id_Hyperlink")
+    private String bGWSearchViewOrderClickCircuitIdHyperlink;
 
+    
     public Bgw() {
     }
 
@@ -147,12 +153,13 @@ public class Bgw implements Serializable {
         this.relmonth = relmonth;
     }
 
-    public String getRelname() {
-        return relname;
+    
+    public String getAppname() {
+        return appname;
     }
 
-    public void setRelname(String relname) {
-        this.relname = relname;
+    public void setAppname(String appname) {
+        this.appname = appname;
     }
 
     public String getBGWOpenEquipmentPage() {
@@ -282,6 +289,23 @@ public class Bgw implements Serializable {
     public void setBGWSearchTaskOpenTaskDetailPage(String bGWSearchTaskOpenTaskDetailPage) {
         this.bGWSearchTaskOpenTaskDetailPage = bGWSearchTaskOpenTaskDetailPage;
     }
+    
+    public String getbGWSearchViewOrderOpenSncCcInfo() {
+        return bGWSearchViewOrderOpenSncCcInfo;
+    }
+
+    public void setbGWSearchViewOrderOpenSncCcInfo(String bGWSearchViewOrderOpenSncCcInfo) {
+        this.bGWSearchViewOrderOpenSncCcInfo = bGWSearchViewOrderOpenSncCcInfo;
+    }
+
+    public String getbGWSearchViewOrderClickCircuitIdHyperlink() {
+        return bGWSearchViewOrderClickCircuitIdHyperlink;
+    }
+
+    public void setbGWSearchViewOrderClickCircuitIdHyperlink(String bGWSearchViewOrderClickCircuitIdHyperlink) {
+        this.bGWSearchViewOrderClickCircuitIdHyperlink = bGWSearchViewOrderClickCircuitIdHyperlink;
+    }
+
 
     @Override
     public int hashCode() {

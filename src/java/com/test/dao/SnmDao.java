@@ -25,11 +25,11 @@ public class SnmDao {
     public int insert(Snm s) throws ClassNotFoundException, SQLException {
         int i ;
         Connection con=DbConnection.getInstance().getConnection();
-            String sql="insert into snm(Rel_date,Rel_month,Rel_name,SNM_Advanced_Trunk_Search_Search_Trunks,SNM_Circuit_Assign_Provision_Find_Ports_Field,SNM_Circuit_Assign_Provision_Assign,SNM_Circuit_View_Modify_Query,SNM_WS_find_Access_Cicuit_Capacity_At_Multiple_Sites,SNM_WS_find_Path_Capacity,SNM_WS_get_NNICapacity_From_SNM) values (?,?,?,?,?,?,?,?,?,?)";
+            String sql="insert into snm(Rel_date,Rel_month,App_name,SNM_Advanced_Trunk_Search_Search_Trunks,SNM_Circuit_Assign_Provision_Find_Ports_Field,SNM_Circuit_Assign_Provision_Assign,SNM_Circuit_View_Modify_Query,SNM_WS_find_Access_Cicuit_Capacity_At_Multiple_Sites,SNM_WS_find_Path_Capacity,SNM_WS_get_NNICapacity_From_SNM) values (?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps =con.prepareStatement(sql);
               ps.setDate(1, new java.sql.Date(s.getReldate().getTime()));
             ps.setString(2,s.getRelmonth());
-            ps.setString(3, s.getRelname());
+            ps.setString(3, s.getAppname());
             ps.setString(4, s.getSNMAdvancedTrunkSearchSearchTrunks());
             ps.setString(5, s.getSNMCircuitAssignProvisionFindPortsField());
             ps.setString(6, s.getSNMCircuitAssignProvisionAssign());
@@ -54,7 +54,7 @@ public class SnmDao {
             Snm d=new Snm();
            d.setReldate(rs.getDate("Rel_date"));
            d.setRelmonth(rs.getString("Rel_month"));
-           d.setRelname(rs.getString("Rel_name"));     
+           d.setAppname(rs.getString("App_name"));     
            d.setSNMAdvancedTrunkSearchSearchTrunks("SNM_Advanced_Trunk_Search_Search_Trunks");
            d.setSNMCircuitAssignProvisionFindPortsField("SNM_Circuit_Assign_Provision_Find_Ports_Field");
            d.setSNMCircuitAssignProvisionAssign("SNM_Circuit_Assign_Provision_Assign");
@@ -68,12 +68,12 @@ public class SnmDao {
         }
         return list;
     }
-      public ArrayList<Snm> displaySnmGraph(String month, String date) throws ClassNotFoundException, SQLException{
+      public ArrayList<Snm> displaySnmGraph(String month, String date, String days) throws ClassNotFoundException, SQLException{
         
         ArrayList<Snm> list=new ArrayList<Snm>();
         Connection con=DbConnection.getInstance().getConnection();
         Statement st=con.createStatement();
-        ResultSet rs=st.executeQuery("SELECT Rel_date,Rel_name, SUM(SNM_Advanced_Trunk_Search_Search_Trunks) AS r1, SUM(SNM_Circuit_Assign_Provision_Find_Ports_Field) AS r2,SUM(SNM_Circuit_Assign_Provision_Assign) AS r3,SUM(SNM_Circuit_View_Modify_Query) AS r4,SUM(SNM_WS_find_Access_Cicuit_Capacity_At_Multiple_Sites) AS r5,SUM(SNM_WS_find_Path_Capacity) AS r6,SUM(SNM_WS_get_NNICapacity_From_SNM) AS r7 FROM snm WHERE (Rel_date BETWEEN '"+date+"' AND DATE_ADD('"+date+"', INTERVAL 5 DAY)) AND Rel_month='"+month+"' GROUP BY DATE(Rel_date)");
+        ResultSet rs=st.executeQuery("SELECT Rel_date,App_name, SUM(SNM_Advanced_Trunk_Search_Search_Trunks) AS r1, SUM(SNM_Circuit_Assign_Provision_Find_Ports_Field) AS r2,SUM(SNM_Circuit_Assign_Provision_Assign) AS r3,SUM(SNM_Circuit_View_Modify_Query) AS r4,SUM(SNM_WS_find_Access_Cicuit_Capacity_At_Multiple_Sites) AS r5,SUM(SNM_WS_find_Path_Capacity) AS r6,SUM(SNM_WS_get_NNICapacity_From_SNM) AS r7 FROM snm WHERE (Rel_date BETWEEN '"+date+"' AND DATE_ADD('"+date+"', INTERVAL 5 DAY)) AND Rel_month='"+month+"' GROUP BY DATE(Rel_date)");
         while(rs.next()){
             Snm s=new Snm();
             s.setSNMAdvancedTrunkSearchSearchTrunks(rs.getString("r1"));
@@ -84,7 +84,7 @@ public class SnmDao {
             s.setSNMWSfindAccessCicuitCapacityAtMultipleSites(rs.getString("r5"));
             s.setSNMWSfindPathCapacity(rs.getString("r6")); 
             s.setSNMWSgetNNICapacityFromSNM(rs.getString("r7"));
-            s.setRelname(rs.getString("Rel_name"));
+            s.setAppname(rs.getString("App_name"));
             s.setReldate(rs.getDate("Rel_date"));
             list.add(s);
         }

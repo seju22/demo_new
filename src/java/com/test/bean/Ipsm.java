@@ -54,8 +54,9 @@ public class Ipsm implements Serializable {
     @Column(name = "Rel_month")
     private String relmonth;
     @Size(max = 20)
-    @Column(name = "Rel_name")
-    private String relname;
+    @Column(name = "App_name")
+    private String appname;
+
     @Size(max = 20)
     @Column(name = "IPSM_SITE_Select_Cloudservices_Click_Search")
     private String iPSMSITESelectCloudservicesClickSearch;
@@ -103,12 +104,13 @@ public class Ipsm implements Serializable {
         this.relmonth = relmonth;
     }
 
-    public String getRelname() {
-        return relname;
+    
+    public String getAppname() {
+        return appname;
     }
 
-    public void setRelname(String relname) {
-        this.relname = relname;
+    public void setAppname(String appname) {
+        this.appname = appname;
     }
 
     public String getIPSMSITESelectCloudservicesClickSearch() {

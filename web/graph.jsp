@@ -1,9 +1,3 @@
-<%-- 
-    Document   : graph
-    Created on : Jan 7, 2017, 4:20:02 PM
-    Author     : MR
---%>
-
 <%@page import="com.test.dao.VddsDao"%>
 <%@page import="com.test.dao.SnmDao"%>
 <%@page import="com.test.dao.IpsmDao"%>
@@ -124,7 +118,7 @@
 		<div class="container">
                     <div class="row">
                     <form action="Graphcontroller" method="post">
-                    <div class="col-md-3">		
+                    <div class="col-md-2">		
                     <select class="form-control"  name="gName">
                         <option value="" disabled selected>Choose</option>
                         <option value="BGW">BGW</option>
@@ -133,15 +127,51 @@
                         <option value="IPSM">IPSM</option>
                     </select>
                     </div>
-                     <div class="col-md-3">		
+                     <div class="col-md-2">		
                            <!--<input class="form-control" type="month" name="gMonth" />-->
                               <input class="form-control" type="text" name="gMonth" id="datepicker"/>  
                     </div>
-                     <div class="col-md-3">
+                     <div class="col-md-2">
                         <!--<input class="form-control" type="date" name="gDate" />-->
                         <input class="form-control" type="text" name="gDate" id="datepicker1"/>
                      </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">		
+                            <select class="form-control"  name="gDays">
+                                <option value="" disabled selected>Choose</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                    </div>
+                    <div class="col-md-2">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                         
@@ -253,6 +283,8 @@
                        String str14BGW="";
                        String str15BGW="";
                        String str16BGW="";
+                       String str17BGW="";
+                       String str18BGW="";
                    
                    String dateBGW="";
                    
@@ -284,6 +316,8 @@
                                         str14BGW="'InterfaceActivity',"+b1.getBGWViewOrderOpenInterfaceActivityTab();
                                         str15BGW="'TaskRecord',"+b1.getBGWSearchTaskRecord();
                                         str16BGW="'TaskDetail',"+b1.getBGWSearchTaskOpenTaskDetailPage();
+                                        str17BGW="'SNC Info',"+b1.getbGWSearchViewOrderOpenSncCcInfo();
+                                        str18BGW="'CirCuitHyperlink',"+b1.getbGWSearchViewOrderClickCircuitIdHyperlink();
                                         dateBGW="'"+b1.getReldate()+"'";
                               
                               
@@ -305,6 +339,8 @@
                                     str14BGW=str14BGW+","+b1.getBGWViewOrderOpenInterfaceActivityTab();
                                     str15BGW=str15BGW+","+b1.getBGWSearchTaskRecord();
                                     str16BGW=str16BGW+","+b1.getBGWSearchTaskOpenTaskDetailPage();
+                                    str17BGW=str17BGW+","+b1.getbGWSearchViewOrderOpenSncCcInfo();
+                                    str18BGW=str18BGW+","+b1.getbGWSearchViewOrderClickCircuitIdHyperlink();
                                     dateBGW=dateBGW+",'"+b1.getReldate()+"'";
                           }   
                          
@@ -336,7 +372,9 @@
          [<%=str13BGW%>],
          [<%=str14BGW%>],
          [<%=str15BGW%>],
-         [<%=str16BGW%>]
+         [<%=str16BGW%>],
+         [<%=str17BGW%>],
+         [<%=str18BGW%>]
  
       ]);
 

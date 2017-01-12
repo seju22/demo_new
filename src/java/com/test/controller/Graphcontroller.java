@@ -104,6 +104,7 @@ public class Graphcontroller extends HttpServlet {
         } 
         String appName = request.getParameter("gName");
         String month = request.getParameter("gMonth");
+        String days = request.getParameter("gDays");
         Date gDate =date;
        // String dateRel[] = date2.split("-");
        
@@ -112,7 +113,7 @@ public class Graphcontroller extends HttpServlet {
              IpsmDao i=new IpsmDao();
            
             try {
-                List<Ipsm> ipsm = i.displayIpsmGraph(month, mapDate);
+                List<Ipsm> ipsm = i.displayIpsmGraph(month, mapDate, days);
                  
                 request.setAttribute("ipsmList", ipsm);
                 System.out.println("List :"+ipsm.size());
@@ -128,7 +129,7 @@ public class Graphcontroller extends HttpServlet {
              SnmDao s=new SnmDao();
            
             try {
-                List<Snm> snm = s.displaySnmGraph(month, mapDate);
+                List<Snm> snm = s.displaySnmGraph(month, mapDate, days);
                  Iterator itr=snm.iterator();
                     while(itr.hasNext()){
                         Snm d1=(Snm)itr.next();
@@ -152,7 +153,7 @@ public class Graphcontroller extends HttpServlet {
            VddsDao v=new VddsDao();
            
             try {
-                List<Vdds> vdds = v.displayVddsGraph(month, mapDate);
+                List<Vdds> vdds = v.displayVddsGraph(month, mapDate, days);
                  Iterator itr=vdds.iterator();
                     while(itr.hasNext()){
                         Vdds v1=(Vdds)itr.next();
@@ -172,7 +173,7 @@ public class Graphcontroller extends HttpServlet {
              Dao b=new Dao();
            
             try {
-                List<Bgw> bgw = b.displayBgwGraph(month, mapDate);
+                List<Bgw> bgw = b.displayBgwGraph(month, mapDate, days);
                  Iterator itr=bgw.iterator();
                     while(itr.hasNext()){
                         Bgw d1=(Bgw)itr.next();

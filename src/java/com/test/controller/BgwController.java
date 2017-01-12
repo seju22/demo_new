@@ -77,16 +77,16 @@ public class BgwController extends HttpServlet {
               
                 try {
                   Bgw d=  demo.getById(id);
-                  if(d.getRelname().equalsIgnoreCase("BGW")){
+                  if(d.getAppname().equalsIgnoreCase("BGW")){
                        session.setAttribute("edit1", d);
                   }
-                  if(d.getRelname().equalsIgnoreCase("IVAPP")){
+                  if(d.getAppname().equalsIgnoreCase("IVAPP")){
                       session.setAttribute("edit2", d);
                   }
-                  if(d.getRelname().equalsIgnoreCase("SNM")){
+                  if(d.getAppname().equalsIgnoreCase("SNM")){
                        session.setAttribute("edit3", d);
                   }
-                  if(d.getRelname().equalsIgnoreCase("IPSM")){
+                  if(d.getAppname().equalsIgnoreCase("IPSM")){
                       session.setAttribute("edit4", d);
                   }
                    //session.setAttribute("edit", d);
@@ -137,7 +137,7 @@ public class BgwController extends HttpServlet {
             b.setReldate(date);
                  System.out.println("date :"+request.getParameter("date"));
             b.setRelmonth(request.getParameter("month"));
-            b.setRelname(request.getParameter("name"));  
+            b.setAppname(request.getParameter("name"));  
             b.setBGWOpenEquipmentPage(request.getParameter("bGWOpenEquipmentPage"));
             b.setBGWOpenAddAislePage(request.getParameter("bGWOpenAddAislePage"));
             b.setBGWLoadRackDetails(request.getParameter("bGWLoadRackDetails"));
@@ -154,6 +154,8 @@ public class BgwController extends HttpServlet {
             b.setBGWViewOrderOpenInterfaceActivityTab(request.getParameter("bGWViewOrderOpenInterfaceActivityTab"));
             b.setBGWSearchTaskRecord(request.getParameter("bGWSearchTaskRecord"));
             b.setBGWSearchTaskOpenTaskDetailPage(request.getParameter("bGWSearchTaskOpenTaskDetailPage"));
+            b.setbGWSearchViewOrderOpenSncCcInfo(request.getParameter("bGWSearchViewOrderOpenSncCcInfo"));
+            b.setbGWSearchViewOrderClickCircuitIdHyperlink(request.getParameter("bGWSearchViewOrderClickCircuitIdHyperlink"));
             
            System.out.println("id is :"+request.getParameter("id"));
             String id = request.getParameter("id");

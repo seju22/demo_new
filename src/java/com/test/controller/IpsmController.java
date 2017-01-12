@@ -89,7 +89,7 @@ public class IpsmController extends HttpServlet {
         Ipsm ipsm=new Ipsm();
             ipsm.setReldate(date);
             ipsm.setRelmonth(request.getParameter("month"));
-            ipsm.setRelname(request.getParameter("name"));  
+            ipsm.setAppname(request.getParameter("name"));  
             ipsm.setIPSMSITESelectCloudservicesClickSearch(request.getParameter("iPSMSITESelectCloudservicesClickSearch"));
             ipsm.setIPSMSITESearchSitePartname(request.getParameter("iPSMSITESearchSitePartname"));
             ipsm.setIPSMSITESearchCircuitid(request.getParameter("iPSMSITESearchCircuitid"));

@@ -56,8 +56,9 @@ public class Snm implements Serializable {
     @Column(name = "Rel_month")
     private String relmonth;
     @Size(max = 20)
-    @Column(name = "Rel_name")
-    private String relname;
+    @Column(name = "App_name")
+    private String appname;
+
     @Size(max = 20)
     @Column(name = "SNM_Advanced_Trunk_Search_Search_Trunks")
     private String sNMAdvancedTrunkSearchSearchTrunks;
@@ -111,12 +112,13 @@ public class Snm implements Serializable {
         this.relmonth = relmonth;
     }
 
-    public String getRelname() {
-        return relname;
+    
+    public String getAppname() {
+        return appname;
     }
 
-    public void setRelname(String relname) {
-        this.relname = relname;
+    public void setAppname(String appname) {
+        this.appname = appname;
     }
 
     public String getSNMAdvancedTrunkSearchSearchTrunks() {

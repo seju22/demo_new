@@ -26,11 +26,11 @@ public class Dao {
         Connection con=DbConnection.getInstance().getConnection();
 
 
-            String sql="insert into bgw(Rel_date,Rel_month,Rel_name,BGW_Open_Equipment_Page,BGW_Open_Add_Aisle_Page,BGW_Load_Rack_Details,BGW_Path_Select_Path,BGW_Path_Open_CircuitId_Details,BGW_Path_Open_Circuit_View_Page,BGW_Path_Open_Print_View_Page,BGW_Path_Open_Circuit_Premises_Page,BGW_Path_Click_Modify,BGW_Site_Open_Add_New_Site_Page,BGW_View_Order_OpenView_Order_Page,BGW_View_Order_Open_Details_Page,BGW_View_Order_Open_Audits_Tab,BGW_View_Order_Open_Interface_Activity_Tab,BGW_Search_Task_Record,BGW_Search_Task_Open_Task_Detail_Page) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql="insert into bgw(Rel_date,Rel_month,App_name,BGW_Open_Equipment_Page,BGW_Open_Add_Aisle_Page,BGW_Load_Rack_Details,BGW_Path_Select_Path,BGW_Path_Open_CircuitId_Details,BGW_Path_Open_Circuit_View_Page,BGW_Path_Open_Print_View_Page,BGW_Path_Open_Circuit_Premises_Page,BGW_Path_Click_Modify,BGW_Site_Open_Add_New_Site_Page,BGW_View_Order_OpenView_Order_Page,BGW_View_Order_Open_Details_Page,BGW_View_Order_Open_Audits_Tab,BGW_View_Order_Open_Interface_Activity_Tab,BGW_Search_Task_Record,BGW_Search_Task_Open_Task_Detail_Page,BGW_Search_View_Order_Open_SNC_CC_Info,BGW_Search_View_Order_Click_Circuit_Id_Hyperlink) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps =con.prepareStatement(sql);
               ps.setDate(1, new java.sql.Date(bgw.getReldate().getTime()));
             ps.setString(2,bgw.getRelmonth());
-            ps.setString(3, bgw.getRelname());
+            ps.setString(3, bgw.getAppname());
             ps.setString(4, bgw.getBGWOpenEquipmentPage());
             ps.setString(5, bgw.getBGWOpenAddAislePage());
             ps.setString(6, bgw.getBGWLoadRackDetails());
@@ -47,6 +47,8 @@ public class Dao {
             ps.setString(17, bgw.getBGWViewOrderOpenInterfaceActivityTab());
             ps.setString(18, bgw.getBGWSearchTaskRecord());
             ps.setString(19, bgw.getBGWSearchTaskOpenTaskDetailPage());
+            ps.setString(20, bgw.getbGWSearchViewOrderOpenSncCcInfo());
+            ps.setString(21, bgw.getbGWSearchViewOrderClickCircuitIdHyperlink());
 
 
           
@@ -65,7 +67,7 @@ public class Dao {
             Bgw d=new Bgw();
            d.setReldate(rs.getDate("Rel_date"));
            d.setRelmonth(rs.getString("Rel_month"));
-           d.setRelname(rs.getString("Rel_name"));          
+           d.setAppname(rs.getString("App_name"));          
 
 
            d.setBGWOpenEquipmentPage(rs.getString("BGW_Open_Equipment_Page"));
@@ -84,6 +86,8 @@ public class Dao {
            d.setBGWViewOrderOpenInterfaceActivityTab(rs.getString("BGW_View_Order_Open_Interface_Activity_Tab"));
            d.setBGWSearchTaskRecord(rs.getString("BGW_Search_Task_Record"));
            d.setBGWSearchTaskOpenTaskDetailPage(rs.getString("BGW_Search_Task_Open_Task_Detail_Page"));
+           d.setbGWSearchViewOrderOpenSncCcInfo(rs.getString("BGW_Search_View_Order_Open_SNC_CC_Info"));
+           d.setbGWSearchViewOrderClickCircuitIdHyperlink("BGW_Search_View_Order_Click_Circuit_Id_Hyperlink");
 
            d.setId(rs.getInt("id"));
             list.add(d);
@@ -100,7 +104,7 @@ public class Dao {
              d.setId(rs.getInt("id"));
              d.setReldate(rs.getDate("Rel_date"));
              d.setRelmonth(rs.getString("Rel_month"));
-             d.setRelname(rs.getString("Rel_name"));          
+             d.setAppname(rs.getString("App_name"));          
            d.setBGWOpenEquipmentPage(rs.getString("BGW_Open_Equipment_Page"));
            d.setBGWOpenAddAislePage(rs.getString("BGW_Open_Add_Aisle_Page"));
            d.setBGWLoadRackDetails(rs.getString("BGW_Load_Rack_Details"));
@@ -117,6 +121,8 @@ public class Dao {
            d.setBGWViewOrderOpenInterfaceActivityTab(rs.getString("BGW_View_Order_Open_Interface_Activity_Tab"));
            d.setBGWSearchTaskRecord(rs.getString("BGW_Search_Task_Record"));
            d.setBGWSearchTaskOpenTaskDetailPage(rs.getString("BGW_Search_Task_Open_Task_Detail_Page"));
+           d.setbGWSearchViewOrderOpenSncCcInfo(rs.getString("BGW_Search_View_Order_Open_SNC_CC_Info"));
+           d.setbGWSearchViewOrderClickCircuitIdHyperlink("BGW_Search_View_Order_Click_Circuit_Id_Hyperlink");
 
 
 
@@ -129,7 +135,7 @@ public class Dao {
          Connection con=DbConnection.getInstance().getConnection();
 
 
-         PreparedStatement st=con.prepareStatement("update bgw set Rel_date='"+d.getReldate()+"',Rel_month='"+d.getRelmonth()+"',Rel_name='"+d.getRelname()+"',BGW_Open_Equipment_Page='"+d.getBGWOpenEquipmentPage()+"',BGW_Open_Add_Aisle_Page='"+d.getBGWOpenAddAislePage()+"',BGW_Load_Rack_Details='"+d.getBGWLoadRackDetails()+"',BGW_Path_Select_Path='"+d.getBGWPathSelectPath()+"',BGW_Path_Open_CircuitId_Details='"+d.getBGWPathOpenCircuitIdDetails()+"',BGW_Path_Open_Circuit_View_Page='"+d.getBGWPathOpenCircuitViewPage()+"',BGW_Path_Open_Print_View_Page='"+d.getBGWPathOpenPrintViewPage()+"',BGW_Path_Open_Circuit_Premises_Page='"+d.getBGWPathOpenCircuitPremisesPage()+"',BGW_Path_Click_Modify='"+d.getBGWPathClickModify()+"',BGW_Site_Open_Add_New_Site_Page='"+d.getBGWSiteOpenAddNewSitePage()+"',BGW_View_Order_OpenView_Order_Page='"+d.getBGWViewOrderOpenViewOrderPage()+"',BGW_View_Order_Open_Details_Page='"+d.getBGWViewOrderOpenDetailsPage()+"',BGW_View_Order_Open_Audits_Tab='"+d.getBGWViewOrderOpenAuditsTab()+"',BGW_View_Order_Open_Interface_Activity_Tab='"+d.getBGWViewOrderOpenInterfaceActivityTab()+"',BGW_Search_Task_Record='"+d.getBGWSearchTaskRecord()+"',BGW_Search_Task_Open_Task_Detail_Page='"+d.getBGWSearchTaskOpenTaskDetailPage()+"' where id='"+d.getId()+"'");
+         PreparedStatement st=con.prepareStatement("update bgw set Rel_date='"+d.getReldate()+"',Rel_month='"+d.getRelmonth()+"',App_name='"+d.getAppname()+"',BGW_Open_Equipment_Page='"+d.getBGWOpenEquipmentPage()+"',BGW_Open_Add_Aisle_Page='"+d.getBGWOpenAddAislePage()+"',BGW_Load_Rack_Details='"+d.getBGWLoadRackDetails()+"',BGW_Path_Select_Path='"+d.getBGWPathSelectPath()+"',BGW_Path_Open_CircuitId_Details='"+d.getBGWPathOpenCircuitIdDetails()+"',BGW_Path_Open_Circuit_View_Page='"+d.getBGWPathOpenCircuitViewPage()+"',BGW_Path_Open_Print_View_Page='"+d.getBGWPathOpenPrintViewPage()+"',BGW_Path_Open_Circuit_Premises_Page='"+d.getBGWPathOpenCircuitPremisesPage()+"',BGW_Path_Click_Modify='"+d.getBGWPathClickModify()+"',BGW_Site_Open_Add_New_Site_Page='"+d.getBGWSiteOpenAddNewSitePage()+"',BGW_View_Order_OpenView_Order_Page='"+d.getBGWViewOrderOpenViewOrderPage()+"',BGW_View_Order_Open_Details_Page='"+d.getBGWViewOrderOpenDetailsPage()+"',BGW_View_Order_Open_Audits_Tab='"+d.getBGWViewOrderOpenAuditsTab()+"',BGW_View_Order_Open_Interface_Activity_Tab='"+d.getBGWViewOrderOpenInterfaceActivityTab()+"',BGW_Search_Task_Record='"+d.getBGWSearchTaskRecord()+"',BGW_Search_Task_Open_Task_Detail_Page='"+d.getBGWSearchTaskOpenTaskDetailPage()+"', BGW_Search_View_Order_Open_SNC_CC_Info='"+d.getbGWSearchViewOrderOpenSncCcInfo()+"',BGW_Search_View_Order_Click_Circuit_Id_Hyperlink='"+d.getbGWSearchViewOrderClickCircuitIdHyperlink()+"' where id='"+d.getId()+"'");
 
          st.executeUpdate();
     }
@@ -141,13 +147,13 @@ public class Dao {
         st.executeUpdate("delete from bgw where id='"+id+"'");       
     }
        
-      public ArrayList<Bgw> displayBgwGraph(String month, String date) throws ClassNotFoundException, SQLException{
+      public ArrayList<Bgw> displayBgwGraph(String month, String date, String days) throws ClassNotFoundException, SQLException{
       
         System.out.println("BGW Date :"+date);
         ArrayList<Bgw> list=new ArrayList<Bgw>();
         Connection con=DbConnection.getInstance().getConnection();
         Statement st=con.createStatement();
-        ResultSet rs=st.executeQuery("SELECT Rel_date,Rel_name, SUM(BGW_Open_Equipment_Page) AS r1, SUM(BGW_Open_Add_Aisle_Page) AS r2, SUM(BGW_Load_Rack_Details) AS r3, SUM(BGW_Path_Select_Path) AS r4, SUM(BGW_Path_Open_CircuitId_Details) AS r5, SUM(BGW_Path_Open_Circuit_View_Page) AS r6, SUM(BGW_Path_Open_Print_View_Page) AS r7, SUM(BGW_Path_Open_Circuit_Premises_Page) AS r8, SUM(BGW_Path_Click_Modify) AS r9, SUM(BGW_Site_Open_Add_New_Site_Page) AS r10, SUM(BGW_View_Order_OpenView_Order_Page) AS r11, SUM(BGW_View_Order_Open_Details_Page) AS r12, SUM(BGW_View_Order_Open_Audits_Tab) AS r13, SUM(BGW_View_Order_Open_Interface_Activity_Tab) AS r14, SUM(BGW_Search_Task_Record) AS r15, SUM(BGW_Search_Task_Open_Task_Detail_Page) AS r16 FROM bgw WHERE (Rel_date BETWEEN '"+date+"' AND DATE_ADD('"+date+"', INTERVAL 5 DAY)) AND Rel_month='"+month+"' GROUP BY DATE(Rel_date)");
+        ResultSet rs=st.executeQuery("SELECT Rel_date,App_name, SUM(BGW_Open_Equipment_Page) AS r1, SUM(BGW_Open_Add_Aisle_Page) AS r2, SUM(BGW_Load_Rack_Details) AS r3, SUM(BGW_Path_Select_Path) AS r4, SUM(BGW_Path_Open_CircuitId_Details) AS r5, SUM(BGW_Path_Open_Circuit_View_Page) AS r6, SUM(BGW_Path_Open_Print_View_Page) AS r7, SUM(BGW_Path_Open_Circuit_Premises_Page) AS r8, SUM(BGW_Path_Click_Modify) AS r9, SUM(BGW_Site_Open_Add_New_Site_Page) AS r10, SUM(BGW_View_Order_OpenView_Order_Page) AS r11, SUM(BGW_View_Order_Open_Details_Page) AS r12, SUM(BGW_View_Order_Open_Audits_Tab) AS r13, SUM(BGW_View_Order_Open_Interface_Activity_Tab) AS r14, SUM(BGW_Search_Task_Record) AS r15, SUM(BGW_Search_Task_Open_Task_Detail_Page) AS r16 FROM bgw WHERE (Rel_date BETWEEN '"+date+"' AND DATE_ADD('"+date+"', INTERVAL 5 DAY)) AND Rel_month='"+month+"' GROUP BY DATE(Rel_date)");
         while(rs.next()){
             Bgw b=new Bgw();
             b.setBGWOpenEquipmentPage(rs.getString("r1"));

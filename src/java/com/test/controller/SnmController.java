@@ -90,7 +90,7 @@ public class SnmController extends HttpServlet {
             Snm s=new Snm();
             s.setReldate(date);
             s.setRelmonth(request.getParameter("month"));
-            s.setRelname(request.getParameter("name"));  
+            s.setAppname(request.getParameter("name"));  
             s.setSNMAdvancedTrunkSearchSearchTrunks(request.getParameter("sNMAdvancedTrunkSearchSearchTrunks"));
             s.setSNMCircuitAssignProvisionFindPortsField(request.getParameter("provisionFindPortsField"));
             s.setSNMCircuitAssignProvisionAssign(request.getParameter("provisionAssignprovisionAssign"));

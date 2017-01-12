@@ -90,7 +90,7 @@ public class VddsController extends HttpServlet {
         Vdds i=new Vdds();
             i.setReldate(date);
             i.setRelmonth(request.getParameter("month"));
-            i.setRelname(request.getParameter("name"));  
+            i.setAppname(request.getParameter("name"));  
             i.setVDDSCircuitSearchCircuit(request.getParameter("vDDSCircuitSearchCircuit"));
             i.setVDDSWorkOrderSearchWorkOrder(request.getParameter("vDDSWorkOrderSearchWorkOrder"));
             i.setVDDSWSGetPVCChangeinfo(request.getParameter("vDDSWSGetPVCChangeinfo"));

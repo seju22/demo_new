@@ -25,11 +25,11 @@ public class VddsDao {
     public int insert(Vdds v) throws ClassNotFoundException, SQLException {
         int i ;
         Connection con=DbConnection.getInstance().getConnection();
-            String sql="insert into vdds(Rel_date,Rel_month,Rel_name,VDDS_Circuit_Search_Circuit,VDDS_WorkOrder_Search_Work_Order,VDDS_WS_Get_PVC_Changeinfo,VDDS_WS_GetCircuit_And_Pvcs_IPSM,VDDS_TDM_Order_Approve,VDDS_TDM_Order_Provisioning_Search_WorkOrder) values (?,?,?,?,?,?,?,?,?)";
+            String sql="insert into vdds(Rel_date,Rel_month,App_name,VDDS_Circuit_Search_Circuit,VDDS_WorkOrder_Search_Work_Order,VDDS_WS_Get_PVC_Changeinfo,VDDS_WS_GetCircuit_And_Pvcs_IPSM,VDDS_TDM_Order_Approve,VDDS_TDM_Order_Provisioning_Search_WorkOrder) values (?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps =con.prepareStatement(sql);
               ps.setDate(1, new java.sql.Date(v.getReldate().getTime()));
             ps.setString(2,v.getRelmonth());
-            ps.setString(3, v.getRelname());
+            ps.setString(3, v.getAppname());
             ps.setString(4, v.getVDDSCircuitSearchCircuit());
             ps.setString(5, v.getVDDSWorkOrderSearchWorkOrder());
             ps.setString(6, v.getVDDSWSGetPVCChangeinfo());
@@ -53,7 +53,7 @@ public class VddsDao {
             Vdds d=new Vdds();
            d.setReldate(rs.getDate("Rel_date"));
            d.setRelmonth(rs.getString("Rel_month"));
-           d.setRelname(rs.getString("Rel_name"));    
+           d.setAppname(rs.getString("App_name"));    
            d.setVDDSCircuitSearchCircuit("VDDS_Circuit_Search_Circuit");
            d.setVDDSWorkOrderSearchWorkOrder("VDDS_WorkOrder_Search_Work_Order");
            d.setVDDSWSGetPVCChangeinfo("VDDS_WS_Get_PVC_Changeinfo");
@@ -66,7 +66,7 @@ public class VddsDao {
         }
         return list;
     }
-      public ArrayList<Vdds> displayVddsGraph(String month, String date) throws ClassNotFoundException, SQLException{
+      public ArrayList<Vdds> displayVddsGraph(String month, String date, String days) throws ClassNotFoundException, SQLException{
         
         ArrayList<Vdds> list=new ArrayList<Vdds>();
         Connection con=DbConnection.getInstance().getConnection();
