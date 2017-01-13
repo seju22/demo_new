@@ -1,0 +1,8 @@
+  MS Sql Server Database Configuration:
+  
+  Url: jdbc:sqlserver://localhost;user=sa;password=admin;database=qep
+  username: sa
+  pwd: admin
+  database name: qep
+  
+  Please find the QEP database backup file in project folders(qep.bak).

@@ -26,7 +26,7 @@ public class Dao {
         Connection con=DbConnection.getInstance().getConnection();
 
 
-            String sql="insert into bgw(Rel_date,Rel_month,App_name,BGW_Open_Equipment_Page,BGW_Open_Add_Aisle_Page,BGW_Load_Rack_Details,BGW_Path_Select_Path,BGW_Path_Open_CircuitId_Details,BGW_Path_Open_Circuit_View_Page,BGW_Path_Open_Print_View_Page,BGW_Path_Open_Circuit_Premises_Page,BGW_Path_Click_Modify,BGW_Site_Open_Add_New_Site_Page,BGW_View_Order_OpenView_Order_Page,BGW_View_Order_Open_Details_Page,BGW_View_Order_Open_Audits_Tab,BGW_View_Order_Open_Interface_Activity_Tab,BGW_Search_Task_Record,BGW_Search_Task_Open_Task_Detail_Page,BGW_Search_View_Order_Open_SNC_CC_Info,BGW_Search_View_Order_Click_Circuit_Id_Hyperlink) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql="insert into bgw(Test_date,Rel_month,App_name,BGW_Open_Equipment_Page,BGW_Open_Add_Aisle_Page,BGW_Load_Rack_Details,BGW_Path_Select_Path,BGW_Path_Open_CircuitId_Details,BGW_Path_Open_Circuit_View_Page,BGW_Path_Open_Print_View_Page,BGW_Path_Open_Circuit_Premises_Page,BGW_Path_Click_Modify,BGW_Site_Open_Add_New_Site_Page,BGW_View_Order_OpenView_Order_Page,BGW_View_Order_Open_Details_Page,BGW_View_Order_Open_Audits_Tab,BGW_View_Order_Open_Interface_Activity_Tab,BGW_Search_Task_Record,BGW_Search_Task_Open_Task_Detail_Page,BGW_Search_View_Order_Open_SNC_CC_Info,BGW_Search_View_Order_Click_Circuit_Id_Hyperlink) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps =con.prepareStatement(sql);
               ps.setDate(1, new java.sql.Date(bgw.getReldate().getTime()));
             ps.setString(2,bgw.getRelmonth());
@@ -65,7 +65,7 @@ public class Dao {
         ResultSet rs=st.executeQuery("select * from bgw");
         while(rs.next()){
             Bgw d=new Bgw();
-           d.setReldate(rs.getDate("Rel_date"));
+           d.setReldate(rs.getDate("Test_date"));
            d.setRelmonth(rs.getString("Rel_month"));
            d.setAppname(rs.getString("App_name"));          
 
@@ -102,7 +102,7 @@ public class Dao {
         Bgw d=new Bgw();
         while(rs.next()){                      
              d.setId(rs.getInt("id"));
-             d.setReldate(rs.getDate("Rel_date"));
+             d.setReldate(rs.getDate("Test_date"));
              d.setRelmonth(rs.getString("Rel_month"));
              d.setAppname(rs.getString("App_name"));          
            d.setBGWOpenEquipmentPage(rs.getString("BGW_Open_Equipment_Page"));
@@ -147,13 +147,18 @@ public class Dao {
         st.executeUpdate("delete from bgw where id='"+id+"'");       
     }
        
-      public ArrayList<Bgw> displayBgwGraph(String month, String date, String days) throws ClassNotFoundException, SQLException{
+      public ArrayList<Bgw> displayBgwGraph(String month, String date) throws ClassNotFoundException, SQLException{
       
         System.out.println("BGW Date :"+date);
         ArrayList<Bgw> list=new ArrayList<Bgw>();
         Connection con=DbConnection.getInstance().getConnection();
         Statement st=con.createStatement();
-        ResultSet rs=st.executeQuery("SELECT Rel_date,App_name, SUM(BGW_Open_Equipment_Page) AS r1, SUM(BGW_Open_Add_Aisle_Page) AS r2, SUM(BGW_Load_Rack_Details) AS r3, SUM(BGW_Path_Select_Path) AS r4, SUM(BGW_Path_Open_CircuitId_Details) AS r5, SUM(BGW_Path_Open_Circuit_View_Page) AS r6, SUM(BGW_Path_Open_Print_View_Page) AS r7, SUM(BGW_Path_Open_Circuit_Premises_Page) AS r8, SUM(BGW_Path_Click_Modify) AS r9, SUM(BGW_Site_Open_Add_New_Site_Page) AS r10, SUM(BGW_View_Order_OpenView_Order_Page) AS r11, SUM(BGW_View_Order_Open_Details_Page) AS r12, SUM(BGW_View_Order_Open_Audits_Tab) AS r13, SUM(BGW_View_Order_Open_Interface_Activity_Tab) AS r14, SUM(BGW_Search_Task_Record) AS r15, SUM(BGW_Search_Task_Open_Task_Detail_Page) AS r16 FROM bgw WHERE (Rel_date BETWEEN '"+date+"' AND DATE_ADD('"+date+"', INTERVAL 5 DAY)) AND Rel_month='"+month+"' GROUP BY DATE(Rel_date)");
+        /* For Mysql */
+        //ResultSet rs=st.executeQuery("SELECT Rel_date,App_name, SUM(BGW_Open_Equipment_Page) AS r1, SUM(BGW_Open_Add_Aisle_Page) AS r2, SUM(BGW_Load_Rack_Details) AS r3, SUM(BGW_Path_Select_Path) AS r4, SUM(BGW_Path_Open_CircuitId_Details) AS r5, SUM(BGW_Path_Open_Circuit_View_Page) AS r6, SUM(BGW_Path_Open_Print_View_Page) AS r7, SUM(BGW_Path_Open_Circuit_Premises_Page) AS r8, SUM(BGW_Path_Click_Modify) AS r9, SUM(BGW_Site_Open_Add_New_Site_Page) AS r10, SUM(BGW_View_Order_OpenView_Order_Page) AS r11, SUM(BGW_View_Order_Open_Details_Page) AS r12, SUM(BGW_View_Order_Open_Audits_Tab) AS r13, SUM(BGW_View_Order_Open_Interface_Activity_Tab) AS r14, SUM(BGW_Search_Task_Record) AS r15, SUM(BGW_Search_Task_Open_Task_Detail_Page) AS r16 FROM bgw WHERE (Rel_date BETWEEN '"+date+"' AND DATE_ADD('"+date+"', INTERVAL 5 DAY)) AND Rel_month='"+month+"' GROUP BY DATE(Rel_date)");
+         /* For MSsql */
+        ResultSet rs=st.executeQuery("SELECT Test_date,SUM(cast(BGW_Open_Equipment_Page as float)) AS r1, SUM(cast(BGW_Open_Add_Aisle_Page as float)) AS r2, SUM(cast(BGW_Load_Rack_Details as float)) AS r3, SUM(cast(BGW_Path_Select_Path as float)) AS r4, SUM(cast (BGW_Path_Open_CircuitId_Details as float)) AS r5, SUM(cast(BGW_Path_Open_Circuit_View_Page as float)) AS r6, SUM(cast(BGW_Path_Open_Print_View_Page as float)) AS r7, SUM(cast (BGW_Path_Open_Circuit_Premises_Page as float)) AS r8, SUM(cast(BGW_Path_Click_Modify as float)) AS r9, SUM(cast(BGW_Site_Open_Add_New_Site_Page as float)) AS r10, SUM(cast(BGW_View_Order_OpenView_Order_Page as float )) AS r11, SUM(cast(BGW_View_Order_Open_Details_Page as float)) AS r12, SUM(cast(BGW_View_Order_Open_Audits_Tab as float)) AS r13, SUM(cast(BGW_View_Order_Open_Interface_Activity_Tab as float)) AS r14, SUM(cast(BGW_Search_Task_Record as float)) AS r15, SUM(cast(BGW_Search_Task_Open_Task_Detail_Page as float)) AS r16 ,sum(cast(BGW_Search_View_Order_Open_SNC_CC_Info as float )) as r17, sum(cast(BGW_Search_View_Order_Click_Circuit_Id_Hyperlink as float)) as r18 FROM bgw\n" +
+" WHERE (Test_date in ("+date+")) AND \n" +
+" Rel_month='"+month+"' GROUP BY (Test_date)");
         while(rs.next()){
             Bgw b=new Bgw();
             b.setBGWOpenEquipmentPage(rs.getString("r1"));
@@ -172,9 +177,33 @@ public class Dao {
             b.setBGWViewOrderOpenInterfaceActivityTab(rs.getString("r14"));
             b.setBGWSearchTaskRecord(rs.getString("r15"));
             b.setBGWSearchTaskOpenTaskDetailPage(rs.getString("r16"));
-            b.setReldate(rs.getDate("Rel_date"));
+            b.setbGWSearchViewOrderOpenSncCcInfo(rs.getString("r17"));
+            b.setbGWSearchViewOrderClickCircuitIdHyperlink(rs.getString("r18"));
+            b.setReldate(rs.getDate("Test_date"));
             list.add(b);
         }
+        return list;
+    }
+      
+       public ArrayList<String> AjaxRelMOnthDates(String AppName, String relMonth,String Table) throws ClassNotFoundException, SQLException{
+      
+      
+        ArrayList<String> list=new ArrayList<String>();
+        Connection con=DbConnection.getInstance().getConnection();
+        Statement st=con.createStatement();
+        /* For Mysql */
+        //ResultSet rs=st.executeQuery("SELECT Rel_date,App_name, SUM(BGW_Open_Equipment_Page) AS r1, SUM(BGW_Open_Add_Aisle_Page) AS r2, SUM(BGW_Load_Rack_Details) AS r3, SUM(BGW_Path_Select_Path) AS r4, SUM(BGW_Path_Open_CircuitId_Details) AS r5, SUM(BGW_Path_Open_Circuit_View_Page) AS r6, SUM(BGW_Path_Open_Print_View_Page) AS r7, SUM(BGW_Path_Open_Circuit_Premises_Page) AS r8, SUM(BGW_Path_Click_Modify) AS r9, SUM(BGW_Site_Open_Add_New_Site_Page) AS r10, SUM(BGW_View_Order_OpenView_Order_Page) AS r11, SUM(BGW_View_Order_Open_Details_Page) AS r12, SUM(BGW_View_Order_Open_Audits_Tab) AS r13, SUM(BGW_View_Order_Open_Interface_Activity_Tab) AS r14, SUM(BGW_Search_Task_Record) AS r15, SUM(BGW_Search_Task_Open_Task_Detail_Page) AS r16 FROM bgw WHERE (Rel_date BETWEEN '"+date+"' AND DATE_ADD('"+date+"', INTERVAL 5 DAY)) AND Rel_month='"+month+"' GROUP BY DATE(Rel_date)");
+         /* For MSsql */
+        // System.out.println("SELECT Rel_date from "+Table+" where App_name="+AppName+"AND Rel_month="+relMonth+" size "+list.size());
+        ResultSet rs=st.executeQuery("SELECT DISTINCT Test_date from "+Table+" where App_name='"+AppName+"' AND Rel_month='"+relMonth+"'");
+        while(rs.next()){
+           
+            list.add(rs.getString("Test_date"));
+           
+           
+        }
+        
+        
         return list;
     }
       

@@ -88,13 +88,13 @@ public class Graphcontroller extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String mapDate=request.getParameter("gDate");
+        String mapDate="2017-01-01";
            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
         java.util.Date date = null;
         String date2 = null;
         
         try {
-            date = sdf.parse(request.getParameter("gDate"));
+            date = sdf.parse(mapDate);
             
             // passed to dao
             date2=sdf.format(date);
@@ -104,7 +104,19 @@ public class Graphcontroller extends HttpServlet {
         } 
         String appName = request.getParameter("gName");
         String month = request.getParameter("gMonth");
-        String days = request.getParameter("gDays");
+        String days[] = request.getParameterValues("gDays");
+        
+        
+        String datewithCamma = "";
+        
+         for (int i = 0; i < days.length; i++) {
+        datewithCamma += "\'" + days[i] + "\'";
+        if (i != days.length - 1) {
+            datewithCamma += ", ";
+        }
+    }
+        
+        System.out.println("days  "+datewithCamma);
         Date gDate =date;
        // String dateRel[] = date2.split("-");
        
@@ -113,8 +125,8 @@ public class Graphcontroller extends HttpServlet {
              IpsmDao i=new IpsmDao();
            
             try {
-                List<Ipsm> ipsm = i.displayIpsmGraph(month, mapDate, days);
-                 
+               // List<Ipsm> ipsm = i.displayIpsmGraph(month, mapDate, days);
+                 List<Ipsm> ipsm = i.displayIpsmGraph(month, datewithCamma);
                 request.setAttribute("ipsmList", ipsm);
                 System.out.println("List :"+ipsm.size());
                // System.out.println("IPSM LIST ARE:"+i.displayIpsmGraph(month));
@@ -129,7 +141,7 @@ public class Graphcontroller extends HttpServlet {
              SnmDao s=new SnmDao();
            
             try {
-                List<Snm> snm = s.displaySnmGraph(month, mapDate, days);
+                List<Snm> snm = s.displaySnmGraph(month, datewithCamma);
                  Iterator itr=snm.iterator();
                     while(itr.hasNext()){
                         Snm d1=(Snm)itr.next();
@@ -153,7 +165,7 @@ public class Graphcontroller extends HttpServlet {
            VddsDao v=new VddsDao();
            
             try {
-                List<Vdds> vdds = v.displayVddsGraph(month, mapDate, days);
+                List<Vdds> vdds = v.displayVddsGraph(month, datewithCamma);
                  Iterator itr=vdds.iterator();
                     while(itr.hasNext()){
                         Vdds v1=(Vdds)itr.next();
@@ -173,7 +185,7 @@ public class Graphcontroller extends HttpServlet {
              Dao b=new Dao();
            
             try {
-                List<Bgw> bgw = b.displayBgwGraph(month, mapDate, days);
+                List<Bgw> bgw = b.displayBgwGraph(month, datewithCamma);
                  Iterator itr=bgw.iterator();
                     while(itr.hasNext()){
                         Bgw d1=(Bgw)itr.next();

@@ -281,11 +281,11 @@ $('.m2id').val("");
             <ul class="nav navbar-nav navbar-right dark-nav" id="menu">
               <li class="active" data-menuanchor="1stPage"><a href="#1stPage" class="active">Home</a></li>
               <li data-menuanchor="2ndPage">
-			 <a href="#2ndPage">Graph</a> 
+			 <a href="graph.jsp">Graph</a> 
 			  </li>
-			  <li class="active" data-menuanchor="3rdPage">
+<!--			  <li class="active" data-menuanchor="3rdPage">
 			  <a href="#3rdPage">Add Result</a></li>
-               <li data-menuanchor="4thPage"><a href="#4thPage">DB Result </a></li> 
+               <li data-menuanchor="4thPage"><a href="#4thPage">DB Result </a></li> -->
             </ul>
           </div>
         </div>
@@ -314,7 +314,7 @@ $('.m2id').val("");
         </div>
       </div>
 
-      <div class="section about dark-image" id="section2">
+<!--      <div class="section about dark-image" id="section2">
         <div class="container">
           <div class="common-container">
             <div class="row">
@@ -324,12 +324,13 @@ $('.m2id').val("");
                   <h1 class="text-center">Performance Engineering</h1>	  
                 </div>
                     <div class="col-md-3">
-                        <!--<a href="graph.jsp">Graph</a>-->
+                        <a href="graph.jsp">Graph</a>
+                        <a href="graph.jsp" class="btn btn-default">Go to Bar Chart</a>
                         <button type="submit" class="btn btn-primary"><a href="graph.jsp" style="color: #fff;">View</a></button>
                     </div>
                 
                    
-<!--		<div class="container">
+		<div class="container">
                     <div class="row">
                     <form action="Graphcontroller" method="post">
                     <div class="col-md-3">		
@@ -598,18 +599,18 @@ $('.m2id').val("");
         });
         </script>
                   </div>
-		</div>  container -->
+		</div>  container 
 
-              </div><!-- End col -->
-            </div><!-- End row -->
+              </div> End col 
+            </div> End row 
 
           </div>
         </div>
       
-</div>
+</div>-->
 	  
 	  <!---- Form ------------------------------------------->
-	      <div class="section about dark-image" id="section3">
+<!--	      <div class="section about dark-image" id="section3">
         <div class="container">
           <div class="common-container">
             <div class="row">
@@ -694,7 +695,7 @@ $('.m2id').val("");
                         
                        
                             <input class="form-control m1id" id="dbId1" type="hidden" name="id" value="${edit1.id}"/>
-                            <!--<input type="hidden" name="name" id="appId1" value="<%=name1%>" placeholder="application name" />-->
+                            <input type="hidden" name="name" id="appId1" value="<%=name1%>" placeholder="application name" />
                             <div class="row col-xs-12"> 
                                 <div class="row">
                                 <div class="form-group has-warning col-xs-4">
@@ -712,19 +713,19 @@ $('.m2id').val("");
                                          <div class="form-group has-warning col-xs-4">
                                         <label class="col-xs-4 control-label" for="inputSuccess">Date</label>
                                         <div class="col-xs-8" style="padding-top: 24px;">
-                                            <!--<input class="form-control m1date" type="date" name="date" value="${edit1.date}"/>-->
+                                            <input class="form-control m1date" type="date" name="date" value="${edit1.date}"/>
                                                 <input  class="form-control m1date" type="text" id="datepicker1" name="date" >
                                         </div>
                                     </div>
                                 </div>
                                           <label style="margin-left: 440px;font-size: 15px;font-weight: 800;color: #0f3352;" class="control-label has-error" for="inputError">Transactions & Response Time</label>
                                     
-<!--                            <div class="form-group has-error" style="margin-bottom: -20px;">
+                            <div class="form-group has-error" style="margin-bottom: -20px;">
                                 <label class="control-label" for="inputError">Transactions Name</label>
                                 <div class="col-xs-6">       
                                     <label class="control-label" for="inputError">Average Response Time</label>
                                 </div>
-                            </div>-->
+                            </div>
                                      <br>
                                      <div class="row">
                                          <div class="form-group has-success col-xs-4">
@@ -859,7 +860,7 @@ $('.m2id').val("");
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
                         <button type="submit" class="btn btn-primary">Submit</button>
-                         <!--<a href="graph.jsp">graph</a>-->
+                         <a href="graph.jsp">graph</a>
                     </div>
                 </form>
                 </div>
@@ -877,7 +878,7 @@ $('.m2id').val("");
                         
                        
                             <input  class="form-control m2id" id="dbId2" type="hidden" name="id" value="${edit2.id}"/>
-                            <!--<input type="hidden" name="name" id="appId1" value="<%=name1%>" placeholder="application name" />-->
+                            <input type="hidden" name="name" id="appId1" value="<%=name1%>" placeholder="application name" />
                             <div class="row col-xs-12"> 
                                 <div class="row">
                                 <div class="form-group has-warning col-xs-4">
@@ -889,26 +890,26 @@ $('.m2id').val("");
                                     <div class="form-group has-warning col-xs-4">
                                         <label class="col-xs-4 control-label" for="inputSuccess">Rel.Month</label>
                                         <div class="col-xs-8" style="padding-top: 24px;">
-                                         <!--<input type="month"  class="form-control m2month" name="month" value="${edit2.month}" />-->
+                                         <input type="month"  class="form-control m2month" name="month" value="${edit2.month}" />
                                          <input class="form-control" type="text" name="month" id="datepickerVDDS"/>  
                                         </div>
                                     </div>
                                          <div class="form-group has-warning col-xs-4">
                                         <label class="col-xs-4 control-label" for="inputSuccess">Date</label>
                                         <div class="col-xs-8" style="padding-top: 24px;">
-                                            <!--<input type="date" class="form-control m2date" name="date" value="${edit2.date}"/>-->
+                                            <input type="date" class="form-control m2date" name="date" value="${edit2.date}"/>
                                             <input  class="form-control m2date" type="text" id="datepicker2" name="date" >
                                         </div>
                                     </div>
                                 </div>
                                           
                                     <label style="margin-left: 440px;font-size: 15px;font-weight: 800;color: #0f3352;" class="control-label has-error" for="inputError">Transactions & Response Time</label>
-<!--                            <div class="form-group has-error" style="margin-bottom: -20px;">
+                            <div class="form-group has-error" style="margin-bottom: -20px;">
                                 <label class="col-xs-6 control-label" for="inputError">Transaction Name</label>
                                 <div class="col-xs-6">       
                                     <label class="control-label" for="inputError">Average Response Time</label>
                                 </div>
-                            </div>-->
+                            </div>
                                      <br>
                                      <div class="row">
                                          <div class="form-group has-success col-xs-6">
@@ -986,7 +987,7 @@ $('.m2id').val("");
                         
                        
                             <input class="form-control m3id" id="dbId3" type="hidden" name="id" value="${edit3.id}"/>
-                            <!--<input type="hidden" name="name" id="appId1" value="<%=name1%>" placeholder="application name" />-->
+                            <input type="hidden" name="name" id="appId1" value="<%=name1%>" placeholder="application name" />
                             <div class="row col-xs-12"> 
                                 <div class="row">
                                 <div class="form-group has-warning col-xs-4">
@@ -998,26 +999,26 @@ $('.m2id').val("");
                                     <div class="form-group has-warning col-xs-4">
                                         <label class="col-xs-4 control-label" for="inputSuccess">Rel.Month</label>
                                         <div class="col-xs-8" style="padding-top: 24px;">
-                                            <!--<input type="month" class="form-control m3month"  name="month" value="${edit3.month}" />-->
+                                            <input type="month" class="form-control m3month"  name="month" value="${edit3.month}" />
                                             <input class="form-control" type="text" name="month" id="datepickerSNM"/>  
                                         </div>
                                     </div>
                                          <div class="form-group has-warning col-xs-4">
                                         <label class="col-xs-4 control-label" for="inputSuccess">Date</label>
                                         <div class="col-xs-8" style="padding-top: 24px;">
-                                            <!--<input type="date" class="form-control m3date"  name="date" value="${edit3.date}"/>-->
+                                            <input type="date" class="form-control m3date"  name="date" value="${edit3.date}"/>
                                             <input  class="form-control m3date" type="text" id="datepicker3" name="date" >
                                         </div>
                                     </div>
                                 </div>
                                           
                                   <label style="margin-left: 440px;font-size: 15px;font-weight: 800;color: #0f3352;" class="control-label has-error" for="inputError">Transactions & Response Time</label>  
-<!--                            <div class="form-group has-error" style="margin-bottom: -20px;">
+                            <div class="form-group has-error" style="margin-bottom: -20px;">
                                 <label class="col-xs-6 control-label" for="inputError">Transaction Name</label>
                                 <div class="col-xs-6">       
                                     <label class="control-label" for="inputError">Average Response Time</label>
                                 </div>
-                            </div>-->
+                            </div>
                                      <br>
                                      <div class="row">
                                          <div class="form-group has-success col-xs-6">
@@ -1100,7 +1101,7 @@ $('.m2id').val("");
                         
                        
                             <input class="form-control m4id" id="dbId4" type="hidden" name="id" value="${edit4.id}"/>
-                            <!--<input type="hidden" name="name" id="appId1" value="<%=name1%>" placeholder="application name" />-->
+                            <input type="hidden" name="name" id="appId1" value="<%=name1%>" placeholder="application name" />
                             <div class="row col-xs-12"> 
                                 <div class="row">
                                 <div class="form-group has-warning col-xs-4">
@@ -1112,26 +1113,26 @@ $('.m2id').val("");
                                     <div class="form-group has-warning col-xs-4">
                                         <label class="col-xs-4 control-label" for="inputSuccess">Rel.Month</label>
                                         <div class="col-xs-8" style="padding-top: 24px;">
-                                            <!--<input type="month" class="form-control m4month"  name="month" value="${edit4.month}" />-->
+                                            <input type="month" class="form-control m4month"  name="month" value="${edit4.month}" />
                                               <input class="form-control" type="text" name="month" id="datepickerIPSM"/>  
                                         </div>
                                     </div>
                                          <div class="form-group has-warning col-xs-4">
                                         <label class="col-xs-4 control-label" for="inputSuccess">Date</label>
                                         <div class="col-xs-8" style="padding-top: 24px;">
-                                            <!--<input type="date" class="form-control m4date"  name="date" value="${edit4.date}"/>-->
+                                            <input type="date" class="form-control m4date"  name="date" value="${edit4.date}"/>
                                             <input  class="form-control m4date" type="text" id="datepicker4" name="date" >
                                         </div>
                                     </div>
                                 </div>
                                           
                                  <label style="margin-left: 440px;font-size: 15px;font-weight: 800;color: #0f3352;" class="control-label has-error" for="inputError">Transactions & Response Time</label>   
-<!--                            <div class="form-group has-error" style="margin-bottom: -20px;">
+                            <div class="form-group has-error" style="margin-bottom: -20px;">
                                 <label class="col-xs-6 control-label" for="inputError">Transaction Name</label>
                                 <div class="col-xs-6">       
                                     <label class="control-label" for="inputError">Average Response Time</label>
                                 </div>
-                            </div>-->
+                            </div>
                                      <br>
                                      <div class="row">
                                          <div class="form-group has-success col-xs-6">
@@ -1192,10 +1193,10 @@ $('.m2id').val("");
                                         <% } %>
             </div> 
           </div>
-        </div>
+        </div>-->
 </div>
 	  
-	    <!-- End section -->
+<!--	     End section 
 <div class="section contact dark-image" id="section4">
         <div class="container">
           <div class="common-container contact-container">
@@ -1207,23 +1208,23 @@ $('.m2id').val("");
                 <div class="about-section section-title title">
                  <div class="widget blank no-padding">
 								<div class="panel panel-default work-progress-table" >
-									  <!-- Default panel contents -->
+									   Default panel contents 
 									<div class="panel-heading">DB Table1</i>
 										
 									</div>
-									  <!-- Table -->
-									<!--<table id="mytable" class="table" >-->
+									   Table 
+									<table id="mytable" class="table" >
                             <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">                                   
 										<thead>
 										  <tr>
 											
-					<!--<th>Id</th>-->	
+					<th>Id</th>	
                                         
                                         <th style="width:14%">Application Name</th>
                                         <th style="width:7%">Rel.Month</th>
                                         <th style="width:12%">Test Date</th>
-<!--					
-                                        <th style="width:10%">Action</th>-->
+					
+                                        <th style="width:10%">Action</th>
 										  </tr>
 										</thead>
 										<tbody> 
@@ -1287,14 +1288,14 @@ $('.m2id').val("");
                                              
                                    %>
             <tr>
-<!--            <td><%=id%></td>-->
+            <td><%=id%></td>
                    <td><%=name%></td>   
                 <td><%=month%></td>  
                 <td><%=date%></td>                  
              
                
-              <!--  <td><a href="BgwController?id=<%=id%>&action=edit#3thPage">Edit</a>|<a href="BgwController?id=<%=id%>&action=delete">Delete</a></td> 
-                -->
+                <td><a href="BgwController?id=<%=id%>&action=edit#3thPage">Edit</a>|<a href="BgwController?id=<%=id%>&action=delete">Delete</a></td> 
+                
             </tr>
             <%
                 }
@@ -1317,21 +1318,21 @@ $('.m2id').val("");
                 <div class="about-section section-title title">
                  <div class="widget blank no-padding">
 								<div class="panel panel-default work-progress-table" >
-									  <!-- Default panel contents -->
+									   Default panel contents 
 									<div class="panel-heading">DB Table2</i>
 										
 									</div>
-									  <!-- Table -->
+									   Table 
                                                                           <table id="example3" class="table table-striped table-bordered" cellspacing="0" width="100%">                                   
 										<thead>
 										  <tr>
 											
-					<!--<th>Id</th>-->	
+					<th>Id</th>	
                                         
 					<th style="width:14%">Application Name</th>
                                         <th style="width:7%">Rel.Month</th>
                                         <th style="width:12%">Test Date</th>
-                                        <!--<th style="width:10%">Action</th>-->
+                                        <th style="width:10%">Action</th>
 										  </tr>
 										</thead>
 										<tbody> 
@@ -1355,13 +1356,13 @@ $('.m2id').val("");
                                              
                                    %>
             <tr>
-<!--            <td><%=id4%></td>-->
+            <td><%=id4%></td>
                 <td><%=name4%></td>   
                 <td><%=month4%></td>  
                 <td><%=date4%></td>                  
                 
                
-                <!--<td><a href="#">Edit</a>|<a href="#">Delete</a></td>--> 
+                <td><a href="#">Edit</a>|<a href="#">Delete</a></td> 
                 
             </tr>
             <%
@@ -1371,7 +1372,7 @@ $('.m2id').val("");
 										  
 										</tbody>
 									</table>
-									<!--<table id="mytable" class="table" >-->
+									<table id="mytable" class="table" >
                            
 								</div>
 
@@ -1387,22 +1388,22 @@ $('.m2id').val("");
                 <div class="about-section section-title title">
                  <div class="widget blank no-padding">
 								<div class="panel panel-default work-progress-table" >
-									  <!-- Default panel contents -->
+									   Default panel contents 
 									<div class="panel-heading">DB Table3</i>
 										
 									</div>
-									  <!-- Table -->
-									<!--<table id="mytable" class="table" >-->
+									   Table 
+									<table id="mytable" class="table" >
                             <table id="example2" class="table table-striped table-bordered" cellspacing="0" width="100%">                                   
 										<thead>
 										  <tr>
 											
-					<!--<th>Id</th>-->	
+					<th>Id</th>	
                                         
                                         <th style="width:14%">Application Name</th>
                                         <th style="width:7%">Rel.Month</th>
                                         <th style="width:12%">Test Date</th>
-                                        <!--<th style="width:10%">Action</th>-->
+                                        <th style="width:10%">Action</th>
 										  </tr>
 										</thead>
 										<tbody> 
@@ -1426,13 +1427,13 @@ $('.m2id').val("");
                                              
                                    %>
             <tr>
-<!--            <td><%=id3%></td>-->
+            <td><%=id3%></td>
                    <td><%=name3%></td>   
                 <td><%=month3%></td>  
                 <td><%=date3%></td>                  
              
                
-                <!--<td><a href="#">Edit</a>|<a href="#">Delete</a></td>--> 
+                <td><a href="#">Edit</a>|<a href="#">Delete</a></td> 
                 
             </tr>
             <%
@@ -1456,22 +1457,22 @@ $('.m2id').val("");
                 <div class="about-section section-title title">
                  <div class="widget blank no-padding">
 								<div class="panel panel-default work-progress-table" >
-									  <!-- Default panel contents -->
+									   Default panel contents 
 									<div class="panel-heading">DB Table4</i>
 										
 									</div>
-									  <!-- Table -->
-									<!--<table id="mytable" class="table" >-->
+									   Table 
+									<table id="mytable" class="table" >
                            
                                                                          <table id="example1" class="table table-striped table-bordered" cellspacing="0" width="100%">                                   
 										<thead>
 										  <tr>
 											
-					<!--<th>Id</th>-->		
+					<th>Id</th>		
                                         <th style="width:14%">Application Name</th>
                                         <th style="width:7%">Rel.Month</th>
                                         <th style="width:12%">Test Date</th>					
-                                        <!--<th style="width:10%">Action</th>-->
+                                        <th style="width:10%">Action</th>
 										  </tr>
 										</thead>
 										<tbody> 
@@ -1495,13 +1496,13 @@ $('.m2id').val("");
                                              
                                    %>
             <tr>
-<!--            <td><%=id2%></td>-->
+            <td><%=id2%></td>
                    <td><%=name2%></td>   
                 <td><%=month2%></td>  
                 <td><%=date2%></td>                  
              
                
-                <!--<td><a href="#">Edit</a>|<a href="#">Delete</a></td>--> 
+                <td><a href="#">Edit</a>|<a href="#">Delete</a></td> 
                 
             </tr>
             <%
@@ -1518,9 +1519,9 @@ $('.m2id').val("");
 
               </div>
             </div>
-          </div><!-- End common-container -->
-        </div><!-- End container -->
-      </div><!-- End section -->
+          </div> End common-container 
+        </div> End container 
+      </div> End section -->
 
      
 

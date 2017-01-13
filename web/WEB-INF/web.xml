@@ -20,6 +20,10 @@
         <servlet-name>Graphcontroller</servlet-name>
         <servlet-class>com.test.controller.Graphcontroller</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ajaxDates</servlet-name>
+        <servlet-class>com.test.controller.ajaxDates</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BgwController</servlet-name>
         <url-pattern>/BgwController</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>Graphcontroller</servlet-name>
         <url-pattern>/Graphcontroller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ajaxDates</servlet-name>
+        <url-pattern>/ajaxDates</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

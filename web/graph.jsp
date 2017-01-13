@@ -61,7 +61,15 @@
 	
        <link rel="stylesheet" type="text/css" href="Accets/css/style.css" />
        <!--<script src="Accets/js/modernizr.custom.63321.js"></script>--> 
-  
+        <link rel="stylesheet" type="text/css" href="//cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css">
+    
+        <style>
+            .ui-datepicker-calendar {
+                display: none;
+                }
+        </style>
+    
+      <script type="text/javascript" src="//cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"></script>
       
     
     <script>
@@ -90,36 +98,35 @@
         <div class="container-fluid">
         
           <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<!--          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right dark-nav" id="menu">
               <li class="active" data-menuanchor="1stPage"><a href="#1stPage" class="active">Performance Engineering</a></li>
                <li data-menuanchor="2ndPage">
-			 <!--<a href="index1.jsp">Home</a>--> 
+			 <a href="index1.jsp">Home</a> 
 			  </li>
            
             </ul>
-          </div>
+          </div>-->
         </div>
       </nav>
     </header>
 
     <div id="fullpage">
-      <div class="overlay-demo"></div>
      
-      <div class="section about dark-image" id="section2">
+     
+      <div class="section " id="section2">
         <div class="container">
-          <div class="common-container">
-            <div class="row">
+          <div class="">
+            <div class="row" style="margin-top: -200px;">
               <div class="col-md-10 col-md-offset-1">
 
-                <div class="about-section section-title title">
-<!--                  <h1 class="text-center">Graph</h1>	  -->
-                </div>
+               
 		<div class="container">
                     <div class="row">
                     <form action="Graphcontroller" method="post">
-                    <div class="col-md-2">		
-                    <select class="form-control"  name="gName">
+                    <div class="col-md-2">	
+                       <label for="name">App Name</label> 
+                    <select class="form-control " id="AppName"  name="gName">
                         <option value="" disabled selected>Choose</option>
                         <option value="BGW">BGW</option>
                         <option value="VDDS">VDDS</option>
@@ -127,51 +134,24 @@
                         <option value="IPSM">IPSM</option>
                     </select>
                     </div>
-                     <div class="col-md-2">		
-                           <!--<input class="form-control" type="month" name="gMonth" />-->
-                              <input class="form-control" type="text" name="gMonth" id="datepicker"/>  
-                    </div>
                      <div class="col-md-2">
-                        <!--<input class="form-control" type="date" name="gDate" />-->
-                        <input class="form-control" type="text" name="gDate" id="datepicker1"/>
-                     </div>
-                    <div class="col-md-2">		
-                            <select class="form-control"  name="gDays">
-                                <option value="" disabled selected>Choose</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
+                          <label for="name">Rel Month</label> 
+                           <!--<input class="form-control" type="month" name="gMonth" />-->
+                              <input class="form-control" type="text" name="gMonth" class="relMonth" id="datepicker"/>  
+                    </div>
+                   
+                    <div class="col-md-2">
+                          <label for="name">Select Date</label> 
+                          <select class="form-control " id="dateValues" multiple="multiple" name="gDays" required="">
+                                <option value="" disabled=""  >Choose</option>
+                                
+                            
+                        
+
                             </select>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2" style="margin-top: 29px;">
+                        <label for="name"> &nbsp&nbsp&nbsp&nbsp&nbsp</label> 
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                         
@@ -381,7 +361,7 @@
     var options = {
       title : 'Performance Engineering',
       vAxis: {title: 'Average Responce Time '},
-      hAxis: { direction:-1, slantedText:true, slantedTextAngle:30 },
+      hAxis: { title: 'Sec', direction:-1, slantedText:true, slantedTextAngle:30 },
       seriesType: 'bars',
       series: {5: {type: 'line'}}
     };
@@ -661,40 +641,82 @@
    <link rel="stylesheet" href="/resources/demos/style.css">
   <!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+      $(document).ready(function(){ 
+      $('#datepicker').datepicker({
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        dateFormat: 'mm-yy',
+        onClose: function(dateText, inst) { 
+           
+            $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
+              var relMonth = $("#datepicker").val();
+        var appName=$("#AppName").val();
+//        alert(relMonth);
+        $.get('ajaxDates', {
+                relMonth : relMonth,appName:appName
+        }, function(response) {
+
+        var select = $('#dateValues');
+        select.find('option').remove();
+          $.each(response, function(index, value) {
+          $('<option>').val(value).text(value).appendTo(select);
+      });
+        });
+        },
+        
+    });
+    });
+      </script>
  <script>
-       $(document).ready(function(){ 
+//       $(document).ready(function(){ 
+//
+//$('#datepicker').datepicker( {
+//    	changeMonth: true,
+//    	changeYear: true,
+//    	showButtonPanel: true,
+//    	dateFormat: 'mm-yy',
+//    	onChangeMonthYear: function(year, month, widget) {
+//            setTimeout(function() {
+//               $('.ui-datepicker-calendar').hide();
+//            });
+//    	},
+//    	onClose: function(dateText, inst) { 
+//    		var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+//    		var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+//    		$(this).datepicker('setDate', new Date(year, month, 1));
+//    	},
+//    }).click(function(){
+//    	$('.ui-datepicker-calendar').hide();
+//    });
+//
+//
+//    
+//});
 
-$('#datepicker').datepicker( {
-    	changeMonth: true,
-    	changeYear: true,
-    	showButtonPanel: true,
-    	dateFormat: 'mm-yy',
-    	onChangeMonthYear: function(year, month, widget) {
-            setTimeout(function() {
-               $('.ui-datepicker-calendar').hide();
-            });
-    	},
-    	onClose: function(dateText, inst) { 
-    		var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
-    		var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
-    		$(this).datepicker('setDate', new Date(year, month, 1));
-    	},
-    }).click(function(){
-    	$('.ui-datepicker-calendar').hide();
-    });
 
-    $('#datepicker1').datepicker( {
-    	dateFormat: 'yy-mm-dd',
-        onChangeMonthYear: function(year, month, widget) {
-            setTimeout(function() {
-               $('.ui-datepicker-calendar').show();
-            });
-    	},
-    }).click(function(){
-    	$('.ui-datepicker-calendar').show();
-    });
-});
+//
+//$('#datepicker').change(function(event) {
+//        var relMonth = $("#datepicker").val();
+//        var appName=$("#AppName").val();
+////        alert(relMonth);
+//        $.get('ajaxDates', {
+//                relMonth : relMonth,appName:appName
+//        }, function(response) {
+//
+//        var select = $('#dateValues');
+//        select.find('option').remove();
+//          $.each(response, function(index, value) {
+//          $('<option>').val(value).text(value).appendTo(select);
+//      });
+//        });
+////        
+//        });
+
+
     </script>
+
  <!----date picker--->
   </body>
 </html>

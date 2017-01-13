@@ -58,7 +58,7 @@ public class Bgw implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Column(name = "Rel_date")
+    @Column(name = "Test_date")
     @Temporal(TemporalType.DATE)
     private Date reldate;
     @Size(max = 20)

@@ -25,7 +25,7 @@ public class VddsDao {
     public int insert(Vdds v) throws ClassNotFoundException, SQLException {
         int i ;
         Connection con=DbConnection.getInstance().getConnection();
-            String sql="insert into vdds(Rel_date,Rel_month,App_name,VDDS_Circuit_Search_Circuit,VDDS_WorkOrder_Search_Work_Order,VDDS_WS_Get_PVC_Changeinfo,VDDS_WS_GetCircuit_And_Pvcs_IPSM,VDDS_TDM_Order_Approve,VDDS_TDM_Order_Provisioning_Search_WorkOrder) values (?,?,?,?,?,?,?,?,?)";
+            String sql="insert into vdds(Test_date,Rel_month,App_name,VDDS_Circuit_Search_Circuit,VDDS_WorkOrder_Search_Work_Order,VDDS_WS_Get_PVC_Changeinfo,VDDS_WS_GetCircuit_And_Pvcs_IPSM,VDDS_TDM_Order_Approve,VDDS_TDM_Order_Provisioning_Search_WorkOrder) values (?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps =con.prepareStatement(sql);
               ps.setDate(1, new java.sql.Date(v.getReldate().getTime()));
             ps.setString(2,v.getRelmonth());
@@ -51,7 +51,7 @@ public class VddsDao {
         ResultSet rs=st.executeQuery("select * from vdds");
         while(rs.next()){
             Vdds d=new Vdds();
-           d.setReldate(rs.getDate("Rel_date"));
+           d.setReldate(rs.getDate("Test_date"));
            d.setRelmonth(rs.getString("Rel_month"));
            d.setAppname(rs.getString("App_name"));    
            d.setVDDSCircuitSearchCircuit("VDDS_Circuit_Search_Circuit");
@@ -66,12 +66,21 @@ public class VddsDao {
         }
         return list;
     }
-      public ArrayList<Vdds> displayVddsGraph(String month, String date, String days) throws ClassNotFoundException, SQLException{
+      public ArrayList<Vdds> displayVddsGraph(String month, String date) throws ClassNotFoundException, SQLException{
         
         ArrayList<Vdds> list=new ArrayList<Vdds>();
         Connection con=DbConnection.getInstance().getConnection();
         Statement st=con.createStatement();
-        ResultSet rs=st.executeQuery("SELECT Rel_date, SUM(VDDS_Circuit_Search_Circuit) AS r1, SUM(VDDS_WorkOrder_Search_Work_Order) AS r2, SUM(VDDS_WS_Get_PVC_Changeinfo) AS r3, SUM(VDDS_WS_GetCircuit_And_Pvcs_IPSM) AS r4, SUM(VDDS_TDM_Order_Approve) AS r5, SUM(VDDS_TDM_Order_Provisioning_Search_WorkOrder) AS r6 FROM vdds where (Rel_date BETWEEN '"+date+"' AND DATE_ADD('"+date+"', INTERVAL 5 DAY)) AND Rel_month='"+month+"' GROUP BY DATE(Rel_date)");
+        // for mysql
+        //ResultSet rs=st.executeQuery("SELECT Rel_date, SUM(VDDS_Circuit_Search_Circuit) AS r1, SUM(VDDS_WorkOrder_Search_Work_Order) AS r2, SUM(VDDS_WS_Get_PVC_Changeinfo) AS r3, SUM(VDDS_WS_GetCircuit_And_Pvcs_IPSM) AS r4, SUM(VDDS_TDM_Order_Approve) AS r5, SUM(VDDS_TDM_Order_Provisioning_Search_WorkOrder) AS r6 FROM vdds where (Rel_date BETWEEN '"+date+"' AND DATE_ADD('"+date+"', INTERVAL 5 DAY)) AND Rel_month='"+month+"' GROUP BY DATE(Rel_date)");
+        
+        // for ms sql
+        ResultSet rs=st.executeQuery("SELECT Test_date,SUM(cast (VDDS_Circuit_Search_Circuit as float)) AS r1,\n" +
+"    SUM(cast(VDDS_WorkOrder_Search_Work_Order as float)) AS r2, SUM(cast(VDDS_WS_Get_PVC_Changeinfo as float)) AS r3,\n" +
+"     SUM(cast(VDDS_WS_GetCircuit_And_Pvcs_IPSM as float)) AS r4, SUM(cast(VDDS_TDM_Order_Approve as float)) AS r5,\n" +
+"      SUM(cast(VDDS_TDM_Order_Provisioning_Search_WorkOrder as float)) AS r6 FROM vdds where \n" +
+"      (Test_date in ("+date+")) AND\n" +
+"       Rel_month='"+month+"' GROUP BY Test_date ");
         while(rs.next()){
             Vdds v=new Vdds();
             v.setVDDSCircuitSearchCircuit(rs.getString("r1"));
@@ -80,7 +89,7 @@ public class VddsDao {
             v.setVDDSWSGetCircuitAndPvcsIPSM(rs.getString("r4"));
             v.setVDDSTDMOrderApprove(rs.getString("r5"));
             v.setVDDSTDMOrderProvisioningSearchWorkOrder(rs.getString("r6"));
-            v.setReldate(rs.getDate("Rel_date"));
+            v.setReldate(rs.getDate("Test_date"));
 //            v.setVDDSTDMOrderProvisioningClickSubmitProvisionButton(rs.getString("r7"));
             list.add(v);
         }

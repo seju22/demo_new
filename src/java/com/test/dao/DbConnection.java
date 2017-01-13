@@ -29,9 +29,15 @@ private static DbConnection dbCon;
 	}
 	public Connection getConnection() throws ClassNotFoundException, SQLException {
 		Connection con=null;
-		Class.forName("com.mysql.jdbc.Driver");
-		con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "root", "");
-		return con;
+                // For Mysql 
+//		Class.forName("com.mysql.jdbc.Driver");
+//		con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "root", "");
+		// for ms sql 
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");	
+		con = DriverManager.getConnection("jdbc:sqlserver://localhost;user=sa;password=admin;database=qep");
+		
+
+                return con;
 	}
 }
 
